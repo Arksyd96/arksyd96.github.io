@@ -1,5 +1,5 @@
 import {useEffect, useRef} from 'react'
-import {Keywords} from '../static-data'
+import geStaticData from '../static-data'
 
 const counts = [1, 3, 5, 7, 5, 3, 1];
 const options = {
@@ -50,7 +50,7 @@ const KeywordsSphere = () => {
 
         let ix = 0,
             iz = 0;
-        for (const kw of Keywords) {
+        for (const kw of geStaticData(0)) {
             const degZ = (π / (counts.length - 1)) * iz;
             const degX = ((2 * π) / counts[iz]) * ix;
 

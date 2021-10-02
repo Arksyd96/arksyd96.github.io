@@ -91,6 +91,7 @@ const ParticlesNetwork = (props) => {
         for (let i = 0; i < quantity; i++) {
             const particle = newParticle();
             particles.push(particle);
+            
         }
         // Creating interactionParticle
         interactionParticle = newParticle();
@@ -133,21 +134,32 @@ const ParticlesNetwork = (props) => {
         interactionParticle.y = e.clientY;
     };
 
-    const getWindowDimensions = () => {
+    /* const getWindowDimensions = () => {
         if(typeof window !== "undefined") {
             return {
                 width: window.innerWidth,
                 height: window.innerHeight,
             };
         }
-    };
+    }; */
 
-    const [windowDimensions, setWindowDimensions] = useState(
-        (typeof window !== 'undefined') ? getWindowDimensions() : {width: 600, height: 600}
+    // let windowDimensions = useWindowSize();
+    const [size, setSize] = useState({width: 0, height: 0});
+    useEffect(() => {
+        function updateSize() {
+            setSize({width: window.innerWidth, height: window.innerHeight});
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+
+    /* const [windowDimensions, setWindowDimensions] = useState(
+        (typeof window !== 'undefined') ? getWindowDimensions() : {width: , height: }
     );
     const onResizeHandler = () => {
         setWindowDimensions(getWindowDimensions());
-    };
+    }; */
 
     // Setuping the canvas and the animation
     useEffect(() => {
@@ -164,14 +176,15 @@ const ParticlesNetwork = (props) => {
 
         // Adding listeners
         window.addEventListener("mousemove", onMouseMoveHandler);
-        window.addEventListener("resize", onResizeHandler);
-    }, []);
+
+        return () => window.removeEventListener("mousemove", onMouseMoveHandler);
+    }, [size]);
 
     return (
         <StyledCanvas
             lightmode={props.lightmode}
-            width={windowDimensions.width}
-            height={windowDimensions.height}
+            width={size.width}
+            height={size.height}
             ref={canvasRef}
             {...props}
         />

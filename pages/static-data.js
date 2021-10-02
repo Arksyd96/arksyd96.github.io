@@ -1,4 +1,4 @@
-export const Keywords = [
+const keywords = [
     "HTML5/CSS",
     "Javascript",
     "TypeScript",
@@ -23,7 +23,7 @@ export const Keywords = [
     "Raspberry Pi",
 ];
 
-export const Curric = [
+const curric = [
     {
         university: "University of Paris-Descartes",
         location: "Paris, France",
@@ -44,7 +44,7 @@ export const Curric = [
     },
 ];
 
-export const projects = [
+const projects = [
     {
         title: "CRNN for licence plates OCR",
         description: "Characters recognition from license plates using convolutional recurrent neural networks.",
@@ -110,3 +110,11 @@ export const projects = [
     }
     
 ]
+
+const geStaticData = (index) => {
+    if(index === 0) return keywords;
+    else if(index === 1) return curric;
+    else if(index === 2) return projects;
+}
+
+export default geStaticData;

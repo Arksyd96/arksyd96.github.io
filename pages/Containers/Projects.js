@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Title from "../Components/Title";
 import SectionWrapper from "./SectionWrapper";
 import Project from "../Components/Project";
-import { projects } from "../static-data";
+import geStaticData from "../static-data";
 
 const ProjectsList = styled.ul`
     list-style: none;
@@ -20,7 +20,7 @@ const Projects = () => {
                 Projects
             </Title>
             <ProjectsList>
-                {projects.map((project, key) => {
+                {geStaticData(2).map((project, key) => {
                     return (
                         <li>
                             <Project key={key} item={project}/>

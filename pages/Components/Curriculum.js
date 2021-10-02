@@ -4,7 +4,7 @@ import KeywordsSphere from "./KeywordsSphere";
 import Title from "./Title";
 import SectionWrapper from '../Containers/SectionWrapper'
 import _Aux from "../HOC/_Aux"
-import { Curric } from '../static-data'
+import geStaticData from '../static-data'
 
 const Layout = styled.div({
     display: "flex",
@@ -70,7 +70,7 @@ const Curriculum = () => {
             <Title number="1" color="#FFFFFF">Curriculum</Title>
             <Layout>
                 <List>
-                    {Curric.map((item, index) => {
+                    {geStaticData(1).map((item, index) => {
                         return (
                             <_Aux>
                                 {index !== 0 ? <div style={{width: '100%', height: '0.5px', backgroundColor: 'orange', marginBottom: '5px'}}/> : null}
