@@ -4,7 +4,7 @@ import Title from "../Components/Title";
 import SectionWrapper from "./SectionWrapper";
 import Project from "../Components/Project";
 
-const projects = require('../Static-data/projects.json')
+const projects = require('../../static-data/projects.json')
 
 const ProjectsList = styled.ul`
     list-style: none;
@@ -14,8 +14,9 @@ const ProjectsList = styled.ul`
     margin: 0;
     padding: 0;
 `;
-const Projects = () => {
-    const [projectList, setProjectList] = React.useState([]);
+
+const Projects = (props) => {
+    const [projectList, setProjectList] = useState([]);
 
     useEffect(() => {
         setProjectList(projects)
@@ -30,7 +31,7 @@ const Projects = () => {
                 {projectList.map((project, key) => {
                     return (
                         <li key={key}>
-                            <Project test={'test'} project={project}/>
+                            <Project project={project}/>
                         </li>
                     );
                 })}

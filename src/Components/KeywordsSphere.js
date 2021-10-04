@@ -1,6 +1,6 @@
 import {useEffect, useRef} from 'react'
 
-const skills = require('../Static-data/skills.json')
+const skills = require('../../static-data/skills.json')
 
 const counts = [1, 3, 5, 7, 5, 3, 1];
 const options = {

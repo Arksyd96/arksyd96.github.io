@@ -49,29 +49,29 @@ body::-webkit-scrollbar-thumb
 }
 
 .calendar-container::before {
-    background-image: url(./assets/icons8-calendrier-64.png);
+    background-image: url(../assets/icons8-calendrier-64.png);
 }
 
 .address-container::before {
-    background-image: url(./assets/icons8-adresse-64.png);
+    background-image: url(../assets/icons8-adresse-64.png);
 }
 
 .based-in-container::before {
-    background-image: url(./assets/icons8-basedin.png);
+    background-image: url(../assets/icons8-basedin.png);
 }
 
 .phone-container::before {
-    background-image: url(./assets/icons8-téléphone.png);
+    background-image: url(../assets/icons8-téléphone.png);
 }
 
 .email-container::before {
-    background-image: url(./assets/icons8-email.png);
+    background-image: url(../assets/icons8-email.png);
 }
 
 .logo-container {
-    background-image: url(./assets/logo_small.png);
+    background-image: url(../assets/logo_small.png);
 }
 
 .redirect-container {
-    background-image: url(./assets/export.svg);
+    background-image: url(../assets/export.svg);
 }

@@ -4,7 +4,7 @@ import KeywordsSphere from "./KeywordsSphere";
 import Title from "./Title";
 import SectionWrapper from '../Containers/SectionWrapper'
 
-const curriculum = require('../Static-data/curriculum.json')
+const curriculum = require('../../static-data/curriculum.json')
 
 const Layout = styled.div({
     display: "flex",
