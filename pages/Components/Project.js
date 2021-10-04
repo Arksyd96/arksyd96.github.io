@@ -59,6 +59,7 @@ const Footer = styled.div`
     flex-direction: row;
     justify-content: space-between;
 `;
+
 const Project = (props) => {
     const { title, description, tags, thumbnail, link } = props.item;
     const [hovered, setHovered] = useState(false);

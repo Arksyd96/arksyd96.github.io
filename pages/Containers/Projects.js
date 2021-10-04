@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import Title from "../Components/Title";
 import SectionWrapper from "./SectionWrapper";
 import Project from "../Components/Project";
-import geStaticData from "../static-data";
+import geStaticData from "../constants/static-data";
 
 const ProjectsList = styled.ul`
     list-style: none;

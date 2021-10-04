@@ -1,5 +1,5 @@
 import {useEffect, useRef} from 'react'
-import geStaticData from '../static-data'
+import geStaticData from '../constants/static-data'
 
 const counts = [1, 3, 5, 7, 5, 3, 1];
 const options = {

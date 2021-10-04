@@ -4,7 +4,7 @@ import KeywordsSphere from "./KeywordsSphere";
 import Title from "./Title";
 import SectionWrapper from '../Containers/SectionWrapper'
 import _Aux from "../HOC/_Aux"
-import geStaticData from '../static-data'
+import geStaticData from '../constants/static-data'
 
 const Layout = styled.div({
     display: "flex",
