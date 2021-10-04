@@ -61,6 +61,9 @@ const Footer = styled.div`
 `;
 
 const Project = (props) => {
+    const { test } = props.test;
+    const {title, description, tags, thumbnail, link} = props.project;
+
     const [hovered, setHovered] = useState(false);
 
     const redirect = () => {
@@ -70,7 +73,7 @@ const Project = (props) => {
     return (
         <ProjectWrapper onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onClick={redirect}>
             <img
-                src={props.item.thumbnail}
+                src={thumbnail}
                 alt="thumbnail"
                 style={{
                     objectFit: "cover",
@@ -81,15 +84,15 @@ const Project = (props) => {
                 }}
             />
             <div style={{ padding: "15px", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '22vh' }}>
-                <Title>{props.item.title}</Title>
-                <Description>{props.item.description}</Description>
+                <Title>{title}</Title>
+                <Description>{description}</Description>
                 <Footer>
                     <TagsWrapper>
-                        {props.item.tags.map((tag, index) => (
+                        {tags.map((tag, index) => (
                             <Tag key={index}>{tag}</Tag>
                         ))}
                     </TagsWrapper>
-                    <RedirectButton link={props.item.link} hovered={hovered}/>
+                    <RedirectButton link={link} hovered={hovered}/>
                 </Footer>
             </div>
         </ProjectWrapper>

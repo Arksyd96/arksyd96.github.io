@@ -30,7 +30,7 @@ const Projects = () => {
                 {projectList.map((project, key) => {
                     return (
                         <li key={key}>
-                            <Project item={project}/>
+                            <Project test={'test'} project={project}/>
                         </li>
                     );
                 })}
