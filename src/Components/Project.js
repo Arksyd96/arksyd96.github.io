@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import RedirectButton from "./RedirectButton";
 
@@ -63,14 +63,6 @@ const Footer = styled.div`
 const Project = (props) => {
     let { title, description, tags, thumbnail, link } = props.project
 
-    /* useEffect(() => {
-        title = props.project.title;
-        description = props.project.description;
-        tags = props.project.tags;
-        thumbnail = props.project.thumbnail;
-        link = props.project.link;
-    }, [])
- */
     const [hovered, setHovered] = useState(false);
 
     const redirect = () => {

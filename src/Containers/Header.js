@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Link from 'next/link'
+import React from "react";
 
 const HeaderWrapper = styled.header({
     position: "fixed",
@@ -53,7 +54,7 @@ const Anchor = styled.a`
     }
 `
 
-const Header = () => {
+const Header = props => {
     const scrollToHome = () => {
         window.scrollTo(0, 0);
     };
@@ -63,10 +64,16 @@ const Header = () => {
             <Logo className="logo-container" onClick={scrollToHome} />
             <nav>
                 <List>
-                    <Anchor number='1' href="#curriculum">Curriculum</Anchor>
-                    <Anchor number='2' href="#projects">Projects</Anchor>
-                    <Anchor number='3' href='#contact'>Contact</Anchor>
-                    <Link href='/blog'><Anchor number='4'>Blog</Anchor></Link>
+                    {!props.minimal ? 
+                        <React.Fragment>
+                            <Anchor number='1' href="#curriculum">Curriculum</Anchor>
+                            <Anchor number='2' href="#projects">Projects</Anchor>
+                            <Anchor number='3' href='#contact'>Contact</Anchor>
+                            <Link href='/blog'><Anchor number='4'>Blog</Anchor></Link>
+                        </React.Fragment>
+                    : (
+                        <Link href='/'><Anchor number='1'>Home</Anchor></Link>
+                    )}
                 </List>
             </nav>
         </HeaderWrapper>
