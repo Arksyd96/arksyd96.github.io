@@ -3,8 +3,8 @@ import styled from "@emotion/styled"
 import KeywordsSphere from "./KeywordsSphere";
 import Title from "./Title";
 import SectionWrapper from '../Containers/SectionWrapper'
-import _Aux from "../HOC/_Aux"
-import geStaticData from '../constants/static-data'
+
+const curriculum = require('../Static-data/curriculum.json')
 
 const Layout = styled.div({
     display: "flex",
@@ -70,9 +70,9 @@ const Curriculum = () => {
             <Title number="1" color="#FFFFFF">Curriculum</Title>
             <Layout>
                 <List>
-                    {geStaticData(1).map((item, index) => {
+                    {curriculum.map((item, index) => {
                         return (
-                            <_Aux>
+                            <React.Fragment key={index}>
                                 {index !== 0 ? <div style={{width: '100%', height: '0.5px', backgroundColor: 'orange', marginBottom: '5px'}}/> : null}
                                 <Item key={index}>
                                     <h1
@@ -93,7 +93,7 @@ const Curriculum = () => {
                                         <Icon className="calendar-container">{item.date}</Icon>
                                     </Icons>
                                 </Item>
-                            </_Aux>
+                            </React.Fragment>
                         );
                     })}
                 </List>

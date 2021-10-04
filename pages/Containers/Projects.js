@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 import Title from "../Components/Title";
 import SectionWrapper from "./SectionWrapper";
 import Project from "../Components/Project";
-import geStaticData from "../constants/static-data";
+
+const projects = require('../Static-data/projects.json')
 
 const ProjectsList = styled.ul`
     list-style: none;
@@ -20,7 +21,7 @@ const Projects = () => {
                 Projects
             </Title>
             <ProjectsList>
-                {geStaticData(2).map((project, key) => {
+                {projects.map((project, key) => {
                     return (
                         <li>
                             <Project key={key} item={project}/>

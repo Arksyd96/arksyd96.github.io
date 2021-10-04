@@ -1,5 +1,6 @@
 import {useEffect, useRef} from 'react'
-import geStaticData from '../constants/static-data'
+
+const skills = require('../Static-data/skills.json')
 
 const counts = [1, 3, 5, 7, 5, 3, 1];
 const options = {
@@ -50,7 +51,7 @@ const KeywordsSphere = () => {
 
         let ix = 0,
             iz = 0;
-        for (const kw of geStaticData(0)) {
+        for (const kw of skills) {
             const degZ = (π / (counts.length - 1)) * iz;
             const degX = ((2 * π) / counts[iz]) * ix;
 
