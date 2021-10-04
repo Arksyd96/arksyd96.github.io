@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import Title from "../Components/Title";
 import SectionWrapper from "./SectionWrapper";
@@ -15,16 +15,22 @@ const ProjectsList = styled.ul`
     padding: 0;
 `;
 const Projects = () => {
+    const [projectList, setProjectList] = React.useState([]);
+
+    useEffect(() => {
+        setProjectList(projects)
+    }, [])
+
     return (
         <SectionWrapper id="projects" offset={1100} minHeight="200vh" apply>
             <Title number="2" color="#FFFFFF">
                 Projects
             </Title>
             <ProjectsList>
-                {projects.map((project, key) => {
+                {projectList.map((project, key) => {
                     return (
-                        <li>
-                            <Project key={key} item={project}/>
+                        <li key={key}>
+                            <Project item={project}/>
                         </li>
                     );
                 })}
