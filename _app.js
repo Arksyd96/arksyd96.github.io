@@ -1,3 +1,4 @@
+/* import './global-styles.css'
 import Header from './Containers/Header'
 import Body from './Containers/Body'
 import Footer from './Containers/Footer'
@@ -13,5 +14,5 @@ const App = () => {
 };
 
 export default App;
-
+ */
 

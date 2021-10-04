@@ -40,11 +40,19 @@ const Font = styled(FontAwesomeIcon)`
 `;
 
 const SocialMediaNav = () => {
+    const links = [
+        {href: 'mailto:aghiles.kebaili.1998@gmail.com', icon: faEnvelope},
+        {href: 'https://www.linkedin.com/in/aghiles-kebaili/', icon: faLinkedin},
+        {href: 'https://github.com/Arksyd96', icon: faGithub},
+    ]
+
     return (
         <IconsWrapper>
-            <Icon><Font icon={faEnvelope} /></Icon>
-            <Icon><Font icon={faLinkedin} /></Icon>
-            <Icon><Font icon={faGithub} /></Icon>
+            {links.map((link, index) => (
+                <Icon key={index} href={link.href} target={index !== 0 ? '_blank' : ''}>
+                    <Font icon={link.icon} />
+                </Icon>
+            ))}
         </IconsWrapper>
     );
 };

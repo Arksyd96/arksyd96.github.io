@@ -1,16 +1,7 @@
 import './global-styles.css'
-import Header from './Containers/Header'
-import Body from './Containers/Body'
-import Footer from './Containers/Footer'
 
-const App = () => {
-    return (
-        <div className="App">
-            <Header />
-            <Body />
-            <Footer />
-        </div>
-    );
-};
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
 
-export default App;
+export default MyApp

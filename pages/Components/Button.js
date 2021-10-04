@@ -14,6 +14,7 @@ const ButtonStyled = styled.a`
     text-align: center;
     box-sizing: border-box;
     transition: all 0.2s;
+    cursor: pointer;
     ${props => props.center && `align-self: center;`}
     :hover {
         color: #000000;
