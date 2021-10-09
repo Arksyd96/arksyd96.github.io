@@ -59,7 +59,7 @@ const Post = () => {
                         {cell.outputs.map((output, index) =>
                             output.output_type === "display_data" ? (
                                 <ImageWrapper key={index}>
-                                    <img src={'data:image/png;base64,' + output.data["image/png"]} key={index} />
+                                    <img src={'data:image/png;base64,' + output.data["image/png"]} key={index} style={{width: '100%'}}/>
                                 </ImageWrapper>
                             ) : ( // stream
                                 <SyntaxHighlighter 
