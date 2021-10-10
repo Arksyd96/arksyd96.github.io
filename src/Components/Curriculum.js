@@ -6,18 +6,17 @@ import SectionWrapper from '../Containers/SectionWrapper'
 
 const curriculum = require('../../static-data/curriculum.json')
 
-const Layout = styled.div({
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    backgroundColor: "transparent",
-    boxShadow: "0px 0px 4px 4px rgba(150, 150, 150, 0.35)",
-    backdropFilter: "blur(6px)",
-    width: "100%",
-    borderRadius: "5px",
-    padding: "1vw 2vw",
-    boxSizing: "border-box"
-});
+const Layout = styled.div`
+    display: flex;
+    flexDirection: row;
+    background-color: transparent;
+    box-shadow: 0px 0px 4px 4px rgba(150, 150, 150, 0.35);
+    backdrop-filter: blur(6px);
+    width: 100%;
+    border-radius: 5px;
+    padding: 1vw 2vw;
+    box-sizing: border-box;
+`
 
 const Item = styled.li`
     margin-bottom: 1em;
