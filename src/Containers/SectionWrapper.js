@@ -11,6 +11,11 @@ const Section = styled.section`
     min-height: ${(props) => props.minHeight};
     opacity: 0;
     transition: all 0.6s ease-in-out;
+    @media (max-width: 768px) {
+        top: ${(props) => (props.invert ? "-50px" : "200px")};
+        min-height: ${(props) => props.minHeight};
+        margin-top: 4vh;
+    }
 `;
 const visible = {
     top: 0,
@@ -24,12 +29,13 @@ const SectionWrapper = (props) => {
     // show the section
     const showSectionHandler = useCallback(
         () => {
-            if (window.scrollY >= props.offset) setIsVisible(true);
-        },
-        [props.offset]
+            let isItMobile = window.innerWidth < 768;
+            if (window.scrollY >= props.offset - (isItMobile ? 200 : 0)) setIsVisible(true);
+        }
     );
 
     useEffect(() => {
+        if (props.id === 'home') setIsVisible(true);
         window.addEventListener("scroll", showSectionHandler);
         return () => {
             window.removeEventListener("scroll", showSectionHandler);

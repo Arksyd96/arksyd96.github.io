@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 const ButtonStyled = styled.a`
     width: 10vw;
+    min-width: 100px;
     padding: 0.5em 1.2em;
     border: 0.1em solid ${props => props.orange ? `orange` : `#FFFFFF`};
     border-radius: 0.15em;
@@ -22,11 +23,19 @@ const ButtonStyled = styled.a`
         border: 0.1em solid orange;
         opacity: 1;
     }
+    @media (max-width: 768px) {
+        width: 100%;
+        color: #000000;
+        background-color: orange;
+        border: 0.1em solid orange;
+        opacity: 1;
+    }
 `;
 
 
 const Button = props => {
-    return <ButtonStyled orange={props.orange} center={props.center} href={props.link} target={props.newtab ? "_blank" : null}>
+    return <ButtonStyled orange={props.orange} center={props.center} href={props.link} target={props.newtab ? "_blank" : null}
+        onClick={props.onClick}>
         {props.label}
     </ButtonStyled>;
 };

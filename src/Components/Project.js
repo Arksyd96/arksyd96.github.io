@@ -8,7 +8,7 @@ const ProjectWrapper = styled.div`
     background-color: transparent;
     box-shadow: 0px 0px 4px 4px rgba(150, 150, 150, 0.35);
     backdrop-filter: blur(8px);
-    width: 25vw;
+    /* width: 25vw; */
     min-height: 50vh;
     border-radius: 2px;
     box-sizing: border-box;

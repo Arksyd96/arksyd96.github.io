@@ -16,6 +16,10 @@ const Layout = styled.div`
     border-radius: 5px;
     padding: 1vw 2vw;
     box-sizing: border-box;
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 const Item = styled.li`
@@ -28,6 +32,13 @@ const Item = styled.li`
         left: 0px;
         font-size: 2em;
     }
+    @media (max-width: 768px) {
+        margin: 0.6em 0;
+        :before {
+            font-size: 1.5em;
+            left: 2vw;
+        }
+    }
 `;
 
 const List = styled.ul({
@@ -38,12 +49,15 @@ const List = styled.ul({
     position: "relative",
 });
 
-const Icons = styled.ul({
-    display: "flex",
-    flexDirection: "row",
-    padding: 0,
-    opacity: '0.8'
-})
+const Icons = styled.ul`
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    opacity: 0.8;
+    @media (max-width: 768px) {
+        font-size: 0.8em;
+    }
+`;
 
 const Icon = styled.li`
     display: flex;
@@ -63,22 +77,37 @@ const Icon = styled.li`
     }
 `
 
+const ItemTitle = styled.h1`
+    margin: 0; 
+    font-size: 1.8em;
+    @media (max-width: 768px) {
+        font-size: 1.2em;
+        margin-bottom: 0.4em;
+    }
+`;
+
+const Divider = styled.div`
+    width: 100%; 
+    height: 0.5px;
+    background-color: orange; 
+    margin-bottom: 5px;
+    @media (max-width: 768px) {
+        width: 95%;
+    }
+`;
+
 const Curriculum = () => {
     return (
-        <SectionWrapper id="curriculum" offset={320} minHeight="110vh" apply>
+        <SectionWrapper id="curriculum" offset={140} minHeight="110vh" apply>
             <Title number="1" color="#FFFFFF">Curriculum</Title>
             <Layout>
                 <List>
                     {curriculum.map((item, index) => {
                         return (
                             <React.Fragment key={index}>
-                                {index !== 0 ? <div style={{width: '100%', height: '0.5px', backgroundColor: 'orange', marginBottom: '5px'}}/> : null}
+                                {index !== 0 ? <Divider /> : null}
                                 <Item key={index}>
-                                    <h1
-                                        style={{ margin: 0, fontSize: "1.5em" }}
-                                    >
-                                        {item.title}
-                                    </h1>
+                                    <ItemTitle>{item.title}</ItemTitle>
                                     <span
                                         style={{
                                             color: "orange",

@@ -1,6 +1,6 @@
-import {useEffect, useRef} from 'react'
+import { useEffect, useRef, useState } from "react";
 
-const skills = require('../../static-data/skills.json')
+const skills = require("../../static-data/skills.json");
 
 const counts = [1, 3, 5, 7, 5, 3, 1];
 const options = {
@@ -12,6 +12,9 @@ const options = {
 };
 
 const KeywordsSphere = () => {
+    const [width, setWidth] = useState(500);
+    const [height, setHeight] = useState(500);
+
     // Variables related to the canvas
     const canvasRef = useRef(null);
     let canvas = null;
@@ -19,10 +22,8 @@ const KeywordsSphere = () => {
     // --------
     const π = Math.PI; // happy math!
     const {
-        width = 500,
-        height = 500,
         radius = 150,
-        fontSize = 16,
+        fontSize = 19,
         tilt = 0,
         initialVelocityX = 0,
         initialVelocityY = 0,
@@ -44,7 +45,7 @@ const KeywordsSphere = () => {
             x * Math.cos(t) - y * Math.sin(t),
             x * Math.sin(t) + y * Math.cos(t),
         ];
-    }
+    };
 
     const render = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -52,7 +53,7 @@ const KeywordsSphere = () => {
         let ix = 0,
             iz = 0;
         for (const kw of skills) {
-            const degZ = (π / (counts.length - 1)) * iz;
+            const degZ = (π / (counts.length )) * iz;
             const degX = ((2 * π) / counts[iz]) * ix;
 
             let x = radius * Math.sin(degZ) * Math.cos(degX);
@@ -69,7 +70,7 @@ const KeywordsSphere = () => {
             const size = fontSize + 2 + 5 * (x / radius);
             ctx.fillStyle = `rgba(189, 148, 100, ${alpha})`;
             ctx.font = `${size}px "Roboto mono", monospace`;
-            ctx.fillText(kw, y + width / 2, -z + height / 2);
+            ctx.fillText(kw, y + width / 2 - 20, -z + height / 2);
 
             ix--;
             if (ix < 0) {
@@ -77,7 +78,7 @@ const KeywordsSphere = () => {
                 ix = counts[iz] - 1;
             }
         }
-    }
+    };
 
     let looping = false;
     const rendererLoop = () => {
@@ -93,7 +94,7 @@ const KeywordsSphere = () => {
 
         rz += vy * 0.01;
         rx += vx * 0.01;
-    }
+    };
 
     function startLoop() {
         looping = true;
@@ -104,9 +105,15 @@ const KeywordsSphere = () => {
         looping = false;
     }
 
-
     // Setuping the canvas and the animation
     useEffect(() => {
+        if (window !== undefined) {
+            if (window.innerWidth > 768) {
+                setWidth(window.innerWidth / 100 * 40);
+                setHeight(window.innerWidth / 100 * 40);
+            }
+        }
+
         canvas = canvasRef.current;
         ctx = canvas.getContext("2d");
         ctx.textAlign = "center";
@@ -129,26 +136,37 @@ const KeywordsSphere = () => {
             if (!clicked) return;
             let [dx, dy] = [event.screenX - lastX, event.screenY - lastY];
             [lastX, lastY] = [event.screenX, event.screenY];
-    
+
             // rotation update
             rz += -dy * 0.01;
             rx += dx * 0.01;
-    
+
             // velocity update
             vx = dx * 0.1;
             vy = dy * 0.1;
-    
+
             if (!looping) startLoop();
         });
         canvas.addEventListener("mouseup", (e) => (clicked = false));
         canvas.addEventListener("mouseleave", (e) => (clicked = false));
+
+        /* if (window !== undefined) {
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 768) {
+                    setVisibility(true);
+                } else {
+                    setVisibility(false);
+                }
+            });
+        } */
     }, []);
 
     return (
         <canvas
+            /* style={{ display: visible ? "block" : "none" }} */
             ref={canvasRef}
         />
     );
-}
+};
 
 export default KeywordsSphere;

@@ -8,7 +8,7 @@ import Post from "../src/Containers/Post"
 
 const blog = () => (
     <div className="App">
-        <Header minimal/>
+        <Header blogMode/>
 		<Layout>
 			<SocialMediaNav />
             <ParticlesNetwork />

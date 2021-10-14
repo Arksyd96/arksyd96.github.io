@@ -4,7 +4,6 @@ import SectionWrapper from "./SectionWrapper";
 import Title from "../Components/Title";
 import Button from "../Components/Button";
 import { css } from "@emotion/css";
-// import "../global-styles.css";
 
 const input_style = css`
     align-self: center;
@@ -28,12 +27,20 @@ const input_style = css`
         outline: none;
         box-shadow: 0px 0px 4px 4px rgba(150, 150, 150, 0.8);
     }
+    @media (max-width: 600px) {
+        width: 100%;
+        margin: 0.5em 0;
+        box-sizing: border-box;
+    }
 `;
 
 const Layout = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    @media (max-width: 768px) {
+        flex-direction: column-reverse;
+    }
 `;
 
 const Form = styled.div`
@@ -58,6 +65,61 @@ const Icon = styled.li`
         background-position: center;
     }
 `
+
+const GetInTouch = styled.h2`
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 1em;
+    color: orange;
+    @media (max-width: 768px) {
+        margin-bottom: 0.5em;
+        text-align: center;
+    }
+`;
+
+const Outro = styled.p`
+    font-size: 1.2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
+    color: #ffffff;
+    width: 90%;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+`;
+
+const ContactInfo = styled.div`
+    list-style: none; 
+    margin: 0; 
+    padding: 0;
+    @media (max-width: 768px) {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+`;
+
+const Link = styled.a`
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    color: orange;
+    font-weight: bold;
+    :after {
+        content: "";
+        display: block;
+        position: relative;
+        opavity: 0.5;
+        height: 1px;
+        width: 0%;
+        background-color: orange;
+        transition: width 0.5s ease;
+    }
+    :hover:after {
+        width: 100%;
+    }
+`;
 
 const Contact = () => {
 	let message = {
@@ -88,23 +150,27 @@ const Contact = () => {
 	}
 
     return (
-        <SectionWrapper id="contact" offset={1400} minHeight="100vh" apply>
+        <SectionWrapper id="contact" offset={2500} minHeight="100vh" apply>
             <Title number="3">Contact</Title>
             <Layout>
                 <div>
                     <div>
-						<h3 style={{fontWeight: 600, fontSize: '1.6em', color: 'orange'}}>Get in touch</h3>
-						<div style={{width: '30vw', marginBottom: '20px'}}>
-							I'm currently looking for internship opportunities in Paris. <br /> 
+						<GetInTouch>Get in touch</GetInTouch>
+						<Outro>
+							I'm currently in work-study at {' '}
+                            <Link href="https://www.stellantis.com/fr"
+                                target="_blank">
+                                Stellantis
+                            </Link> but i'll be open to new proposals.
 							Feel free to send me a message, my inbox is always open 
 							whether for a question or just to say hi!
-						</div>
+						</Outro>
 					</div>
-                    <ul style={{listStyle: 'none', margin: 0, padding: 0}}>
+                    <ContactInfo>
                         <Icon className="based-in-container">Pontoise, Île-de-France, France</Icon>
                         <Icon className="phone-container">+33 605 58 15 71</Icon>
                         <Icon className="email-container">aghiles.kebaili@etu.u-paris.fr</Icon>
-                    </ul>
+                    </ContactInfo>
                 </div>
                 <Form>
                     <input

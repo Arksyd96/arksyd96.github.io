@@ -13,9 +13,12 @@ const ProjectsList = styled.ul`
     grid-template-columns: repeat(auto-fill, 25vw);
     margin: 0;
     padding: 0;
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
 `;
 
-const Projects = (props) => {
+const Projects = () => {
     const [projectList, setProjectList] = useState([]);
 
     useEffect(() => {

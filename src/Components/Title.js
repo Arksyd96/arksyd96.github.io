@@ -19,6 +19,13 @@ const Title = (props) => {
             margin: 0px 20px;
             top: -10px;
         }
+        @media (max-width: 768px) {
+            font-size: 1.5em;
+            :before, :after {
+                width: 10vw;
+                margin: 0px 10px;
+            }
+        }
 `;
     return <T number={props.number}>{props.children}</T>
 }

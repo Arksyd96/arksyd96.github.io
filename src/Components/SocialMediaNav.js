@@ -33,6 +33,9 @@ const Icon = styled.a`
         background: orange;
         border: 1px solid orange;
     }
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
 
 const Font = styled(FontAwesomeIcon)`
