@@ -11,7 +11,7 @@ const input_style = css`
     width: 40vw;
     font-family: inherit;
     border: none;
-    border-radius: 0.2em;
+    border-radius: 2px;
     padding: 0.6em 0.3em;
     background: transparent;
     backdrop-filter: blur(6px);

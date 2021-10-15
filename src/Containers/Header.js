@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.header(props => `
     position: fixed;
     top: 0;
     display: flex;
@@ -24,7 +24,7 @@ const HeaderWrapper = styled.header`
         padding: 0 5%;
         height: 6vh;
     }
-`;
+`);
 
 const List = styled.ul({
     display: "flex",
@@ -43,7 +43,7 @@ const Logo = styled.div`
 `;
 
 const Anchor = styled.a`
-    color: #ffffff;
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: bold;
     transition: width 0.5s ease, color 0.5s ease;
@@ -53,8 +53,8 @@ const Anchor = styled.a`
         color: orange;
     }
     :before {
-        content: "${(props) => props.number}. ";
         color: orange;
+        content: "${props => props.number + '. '}";
     }
 `;
 
@@ -76,7 +76,7 @@ const Header = (props) => {
             <Logo className="logo-container" onClick={scrollToHome} />
             <nav>
                 <List>
-                    {props.blogMode ? (
+                    {props.blog ? (
                         isMobile ? null : (
                             <Link href="/">
                                 <Anchor number="1">Home</Anchor>

@@ -13,7 +13,7 @@ const Layout = styled.div`
     box-shadow: 0px 0px 4px 4px rgba(150, 150, 150, 0.35);
     backdrop-filter: blur(6px);
     width: 100%;
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 1vw 2vw;
     box-sizing: border-box;
     @media (max-width: 1024px) {

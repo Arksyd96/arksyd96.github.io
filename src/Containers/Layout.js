@@ -1,14 +1,14 @@
 import React from "react";
 import Styled from '@emotion/styled'
 
-const StyledLayout = Styled.main({
-    margin: '0% 10%',
-    boxSizing: 'border-box'
-})
+const StyledLayout = Styled.main`
+    margin: ${props => props.blog ? '0 18%' : '0 10%'};
+    box-sizing: border-box;
+`;
 
 const Layout = (props) => {
     return (
-        <StyledLayout>
+        <StyledLayout blog={props.blog}>
             {props.children}
         </StyledLayout>
     )       

@@ -11,15 +11,15 @@ md.use(mk, { throwOnError: false, errorColor: " #cc0000" });
 const Layout = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: transparent;
+    color: black;
+    background-color: rgba(220, 220, 220, 0.88);
     box-shadow: 0px 0px 4px 4px rgba(150, 150, 150, 0.35);
     backdrop-filter: blur(6px);
     width: 100%;
     border-radius: 5px;
-    padding: 1vw 2vw;
+    padding: 2vh 4vw;
     box-sizing: border-box;
     margin: 15vh 0 10vh 0;
-    padding: 20px;
 `;
 
 const editorStyle = {

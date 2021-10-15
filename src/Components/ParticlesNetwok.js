@@ -8,7 +8,7 @@ const StyledCanvas = styled.canvas`
     z-index: -1;
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(to bottom, ${props => props.lightmode ? `rgb(220, 220, 220)` : `black`} 20%, rgb(87, 111, 116));
+    background-image: linear-gradient(to bottom,  black 20%, rgb(87, 111, 116));
 `
 
 const ParticlesNetwork = (props) => {
@@ -32,7 +32,7 @@ const ParticlesNetwork = (props) => {
             y: Math.random() * canvas.height,
             radius: depthRate * (3.5 - 1.5) + 1.5,
             opacity: depthRate,
-            color: props.lightmode ? `rgb(50, 50, 50)` : `#aaa`,
+            color: `#aaa`,
             velocity: {
                 x: (Math.random() - 0.5) * velocity,
                 y: (Math.random() - 0.5) * velocity,
@@ -86,7 +86,7 @@ const ParticlesNetwork = (props) => {
     };
 
     const createParticles = () => {
-        const quantity = (canvas.width * canvas.height) / density;
+        const quantity =  props.enableParticles ? (canvas.width * canvas.height) / density : 0;
         // Creating new particles
         for (let i = 0; i < quantity; i++) {
             const particle = newParticle();
@@ -134,15 +134,6 @@ const ParticlesNetwork = (props) => {
         interactionParticle.y = e.clientY;
     };
 
-    /* const getWindowDimensions = () => {
-        if(typeof window !== "undefined") {
-            return {
-                width: window.innerWidth,
-                height: window.innerHeight,
-            };
-        }
-    }; */
-
     // let windowDimensions = useWindowSize();
     const [size, setSize] = useState({width: 0, height: 0});
     useEffect(() => {
@@ -153,13 +144,6 @@ const ParticlesNetwork = (props) => {
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-
-    /* const [windowDimensions, setWindowDimensions] = useState(
-        (typeof window !== 'undefined') ? getWindowDimensions() : {width: , height: }
-    );
-    const onResizeHandler = () => {
-        setWindowDimensions(getWindowDimensions());
-    }; */
 
     // Setuping the canvas and the animation
     useEffect(() => {
@@ -173,16 +157,16 @@ const ParticlesNetwork = (props) => {
         }
 
         requestAnimationFrame(update);
+      
 
         // Adding listeners
         window.addEventListener("mousemove", onMouseMoveHandler);
 
         return () => window.removeEventListener("mousemove", onMouseMoveHandler);
-    }, [size]);
+    }, [size, props.enableParticles]);
 
     return (
         <StyledCanvas
-            lightmode={props.lightmode}
             width={size.width}
             height={size.height}
             ref={canvasRef}
