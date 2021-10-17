@@ -35,7 +35,7 @@ const ButtonStyled = styled.a`
 
 const Button = props => {
     return <ButtonStyled orange={props.orange} center={props.center} href={props.link} target={props.newtab ? "_blank" : null}
-        onClick={props.onClick}>
+        onClick={props.onClick} style={props.style}>
         {props.label}
     </ButtonStyled>;
 };

@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Title from "../Components/Title";
 import SectionWrapper from "./SectionWrapper";
 import Project from "../Components/Project";
+import Button from "../Components/Button";
 
 const projects = require('../../static-data/projects.json')
 
@@ -11,6 +12,7 @@ const ProjectsList = styled.ul`
     display: grid;
     gap: 15px;
     grid-template-columns: repeat(auto-fill, 25vw);
+    transition: all 0.3s ease-in-out;
     margin: 0;
     padding: 0;
     @media (max-width: 768px) {
@@ -18,12 +20,33 @@ const ProjectsList = styled.ul`
     }
 `;
 
+const LI = styled.li`
+    display: ${props => props.display ? 'list-item' : 'none'};
+    transition: all 0.3s ease-in-out;
+`
+
 const Projects = () => {
+    let defaultProjectsCount = 6;
     const [projectList, setProjectList] = useState([]);
+    const [projectsCount, setProjectsCount] = useState(defaultProjectsCount);
 
     useEffect(() => {
         setProjectList(projects)
+        if(window !== undefined) {
+            if(window.innerWidth < 768) {
+                defaultProjectsCount = 3;
+                setProjectsCount(defaultProjectsCount)
+            }
+        }
     }, [])
+
+    const handleProjectsNumber = () => {
+        if(projectsCount === projectList.length) setProjectsCount(defaultProjectsCount)
+        else {
+            if(projectsCount + 3 > projectList.length) setProjectsCount(projectList.length)
+            else setProjectsCount(projectsCount + 3)
+        }
+    }
 
     return (
         <SectionWrapper id="projects" offset={1100} minHeight="200vh" apply>
@@ -33,12 +56,17 @@ const Projects = () => {
             <ProjectsList>
                 {projectList.map((project, key) => {
                     return (
-                        <li key={key}>
+                        <LI key={key} display={key + 1 <= projectsCount ? true : false}>
                             <Project project={project}/>
-                        </li>
+                        </LI>
                     );
                 })}
             </ProjectsList>
+            <Button 
+                label={projectsCount === projectList.length ? 'View less' : 'View more'} 
+                onClick={handleProjectsNumber} 
+                style={{marginTop: '20px', alignSelf: 'center', minWidth: '200px'}}
+            />
         </SectionWrapper>
     );
 };

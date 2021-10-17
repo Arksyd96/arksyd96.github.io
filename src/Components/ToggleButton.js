@@ -18,6 +18,7 @@ const Toggle = styled.input`
     border: 2px solid #474755;
     background: white;
     transition: all 0.2s ease;
+    z-index: 12;
     :after {
         content: "";
         position: absolute;
@@ -38,10 +39,14 @@ const Toggle = styled.input`
             transform: translatex(20px);
         }
     }
+    @media (max-width: 768px) {
+        top: 8vh;
+        left: 15px;
+    }
 `;
 
 const ToggleButton = props => {
-    return <Toggle type="checkbox" checked={props.checked} onClick={props.onClick}/>;
+    return <Toggle type="checkbox" defaultChecked={true} onClick={props.onClick}/>;
 };
 
 export default ToggleButton;
