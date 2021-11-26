@@ -9,6 +9,8 @@ module.exports = {
     return {
       "/": { page: "/" },
       "/blog": { page: "/blog" },
+      "/blog/post": {page: '/blog/post'},
+      "/blog/[post]": {page: "/blog/[post]"}
     }
   },
   //assetPrefix: '',

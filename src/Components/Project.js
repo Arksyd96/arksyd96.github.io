@@ -69,7 +69,8 @@ const Project = (props) => {
     }
 
     return (
-        <ProjectWrapper onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onClick={redirect}>
+        <ProjectWrapper onMouseEnter={() => setHovered(true)} 
+            onMouseLeave={() => setHovered(false)} onClick={!props.post ? redirect : null}>
             <img
                 src={thumbnail}
                 alt="thumbnail"
