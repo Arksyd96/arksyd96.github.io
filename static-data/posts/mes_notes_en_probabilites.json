@@ -280,6 +280,38 @@
        "    - Il est **récurrent nul** si le temps moyen de retour est infini. Noté $M_j = \\infty$ (M_j est le temps moyen de retour vers $j$).\n",
        "    - Il est **récurrent non nul** si le temps moyen de retour est fini. Noté $M_j = \\sum_{n=1}^{\\infty} nf_{jj}^{(n)}$ (Revoir la formule de l'espérence d'une variable discrète pour comprendre l'origine de la formule)."
       ]
+     },
+     {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+       "## **3. Ergodicité d'une chaîne de Markov:**\n",
+       "Une chaîne de Markov est dite **ergodique** si et seulement si elle est irréductible et que tous ses états sont transitoires (tout les états sont atteignables). Plus formellement, la chaîne est érgodique si $\\lim_{t \\rightarrow \\infty} \\pi^{(t)}$ existe est ne dépend pas du vecteur initial $\\pi^{(0)}$. En plus, une chaîne est :\n",
+       "- Irréductible si tout ses états sont de la même nature.\n",
+       "- Irréductible finie si tout ses états sont récurrents non nuls.\n",
+       "\n",
+       "### Le nombre moyen de passage par un état\n",
+       "Soit $R_{ij}$ le nombre moyen de passages par un état $j$ sachant que l'on vient d'un état $i \\neq j$ :\n",
+       "$$R_{ij} = \\sum_{n=1}^{\\infty} n \\times P[Y=n_{passages} |X_{t-1}=i]$$\n",
+       "Avec $Y$ le nombre de passages $n$ par un état $j$ et $X_{t-1}$ l'état précédent. On note aussi :\n",
+       "$$R_{ij} = \\frac{f_{ij}}{1 - f_{jj}}$$\n",
+       "c-à-dire que $R_{ij}$ est égal à la probabilité de transition d'un état $i$ vers l'état $j$ (un passage de $j$) divisé par la probabilité de transition de tout les autres états sauf vers lui même (tout les chemins possibles sauf les boucles internes de $j$ vers $j$ car ce ne sont pas réellement des passages mais plutot une station sur le même état).\n",
+       "\n",
+       "## **4. Régime permanent:**\n",
+       "Il s'agit de l'étude d'un état stationnaire de $\\pi$ si ce dérnier existe. On peut définir un régime permanent comme un état stationnaire de $\\pi$ si et seulement si :\n",
+       "$$\\lim_{t \\rightarrow \\infty} \\pi^{(t)} = \\pi^{(0)}P^n \\Longrightarrow \\pi^{(n)} = \\pi^{(n+1)}$$\n",
+       "il faut donc résoudre le système d'equations suivant :\n",
+       "$$\\pi = \\pi P$$\n",
+       "\n",
+       "Cependant, il existe des condtions nécéssaires mais pas suffisantes pour qu'un régime permanent soit vrai. La chaîne de Markov doit être irréductible (donc apériodique), et les états doivent être transitoires (érgodique). On aura alors $\\lim_{n \\rightarrow \\infty} \\pi^{(n)} = \\pi^{(p)}$ existe et ne dépend pas du vecteur initial $\\pi^{(0)}$. \n",
+       "$$ \\pi_j = \\sum_{i \\in E} \\pi_{i} P_{ij} = \\sum_{j} P_{ji} = \\pi P$$\n",
+       "Car les flux sortants sont égaux aux flux entrants, et de ce fait $\\sum_{i \\in E} P_{ij} = 1$.  \n",
+       "**Rappel** la formule suivante est très utile pour résoudre les systèmes d'équations :\n",
+       "$$\\sum_{i \\in E} \\pi_i = 1$$  \n",
+       "\n",
+       "Si la probabilité stationnaire existe, alors il existe un régime permanent et on note :\n",
+       "$$\\pi_i = \\frac{1}{M_i}$$"
+      ]
      }
     ],
     "metadata": {

@@ -35,9 +35,10 @@ const ImageWrapper = styled.div`
     margin: 2vh 2vw 0 2vw;
 `
 
-const post = require("../../static-data/posts.json");
+const Post = props => {
+    // getting the post from the url
+    const post = require(`../../static-data/posts/${props.filename}.json`);
 
-const Post = () => {
     return (
         <Layout>
             {post.cells.map((cell, index) =>
