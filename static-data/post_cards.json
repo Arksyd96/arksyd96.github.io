@@ -4,20 +4,20 @@
         "description": "Characters recognition from license plates using convolutional recurrent neural networks.",
         "tags": ["Python", "Keras", "Numpy", "CRNN"],
         "thumbnail": "https://cdn.discordapp.com/attachments/874390691931902022/878748098879434782/ocr.png",
-        "link": "blog/post1"
+        "link": "post1"
     },
     {
         "title": "Deep learning for image classification",
         "description": "Deep learning for image classification using Keras and Tensorflow.",
         "tags": ["Python", "Keras", "Tensorflow", "Image"],
         "thumbnail": "https://github.com/Arksyd96/ocr-license-plates-crnn/blob/master/text-from-image-ocr.ipynb",
-        "link": "blog/deep_learning_for_image_classification"
+        "link": "deep_learning_for_image_classification"
     },
     {
         "title": "Bases en probabilités pour du Machine learning",
         "description": "Mes notes sur les différents sujets de probabilités utils pour faire du Machine learning (Variables aléatoire,  Fonctions de distribution, Chaîne de Markov)",
         "tags": ["Probabilities", "Machine learning"],
         "thumbnail": "https://github.com/Arksyd96/ocr-license-plates-crnn/blob/master/text-from-image-ocr.ipynb",
-        "link": "blog/mes_notes_en_probabilites"
+        "link": "mes_notes_en_probabilites"
     }
 ]

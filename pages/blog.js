@@ -44,11 +44,7 @@ const blog = () => {
                 <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh">
                     <ArticlesList>
                         {test.map((post_meta, index) => (
-                            <Link
-                                href="/blog/[post]"
-                                as={`/${post_meta.link}`}
-                                key={index}
-                            >
+                            <Link href={`/blog/${post_meta.link}`}>
                                 <a>{post_meta.link}</a>
                             </Link>
                         ))}
