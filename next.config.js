@@ -8,8 +8,7 @@ module.exports = {
   exportPathMap: function () {
     return {
       "/": { page: "/" },
-      "/blog/[post]": {page: "/blog/[post]"},
-      '/blog': {page: '/blog'},
+      "/blog": {page: '/blog/'}
     }
   },
   //assetPrefix: '',
