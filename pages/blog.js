@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Header from "../../src/Containers/Header";
-import Layout from "../../src/Containers/Layout";
-import Footer from "../../src/Containers/Footer";
-import SocialMediaNav from "../../src/Components/SocialMediaNav";
-import ParticlesNetwork from "../../src/Components/ParticlesNetwok";
-import SectionWrapper from "../../src/Containers/SectionWrapper";
-import ToggleButton from "../../src/Components/ToggleButton";
+import Header from "../src/Containers/Header";
+import Layout from "../src/Containers/Layout";
+import Footer from "../src/Containers/Footer";
+import SocialMediaNav from "../src/Components/SocialMediaNav";
+import ParticlesNetwork from "../src/Components/ParticlesNetwok";
+import SectionWrapper from "../src/Containers/SectionWrapper";
+import ToggleButton from "../src/Components/ToggleButton";
 // import Post from "../src/Containers/Post";
 
 // import Card from "../src/Components/Card";
 import Link from "next/link";
 
-const test = require("../../static-data/post_cards.json");
+const test = require("../static-data/post_cards.json");
 
 const ArticlesList = styled.ul`
     list-style: none;
