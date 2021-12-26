@@ -1,18 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Header from "../src/Containers/Header";
-import Layout from "../src/Containers/Layout";
-import Footer from "../src/Containers/Footer";
-import SocialMediaNav from "../src/Components/SocialMediaNav";
-import ParticlesNetwork from "../src/Components/ParticlesNetwok";
-import SectionWrapper from "../src/Containers/SectionWrapper";
-import ToggleButton from "../src/Components/ToggleButton";
-// import Post from "../src/Containers/Post";
-
-// import Card from "../src/Components/Card";
+import Header from "../../src/Containers/Header";
+import Layout from "../../src/Containers/Layout";
+import Footer from "../../src/Containers/Footer";
+import SocialMediaNav from "../../src/Components/SocialMediaNav";
+import ParticlesNetwork from "../../src/Components/ParticlesNetwok";
+import SectionWrapper from "../../src/Containers/SectionWrapper";
+import ToggleButton from "../../src/Components/ToggleButton";
 import Link from "next/link";
-
-const test = require("../static-data/post_cards.json");
 
 const ArticlesList = styled.ul`
     list-style: none;
@@ -31,6 +26,8 @@ const ArticlesList = styled.ul`
 const blog = () => {
     const [enableParticles, setEnableParticles] = React.useState(true);
 
+    const test = require("../../static-data/posts.json");
+
     return (
         <div className="App">
             <Header blog />
@@ -44,8 +41,8 @@ const blog = () => {
                 <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh">
                     <ArticlesList>
                         {test.map((post_meta, index) => (
-                            <Link href={`/blog/${post_meta.link}`}>
-                                <a>{post_meta.link}</a>
+                            <Link href={`/blog/${post_meta.id}`} key={index}>
+                                <a>{post_meta.id}</a>
                             </Link>
                         ))}
                     </ArticlesList>
@@ -58,7 +55,7 @@ const blog = () => {
 
 export async function getServerSideProps(context) {
     return {
-        props: {}, // will be passed to the page component as props
+        props: {}
     };
 }
 

@@ -37,11 +37,11 @@ const ImageWrapper = styled.div`
 
 const Post = props => {
     // getting the post from the url
-    const post = require(`../../static-data/posts/${props.filename}.json`);
+    // const post = require(`../../static-data/posts/${props.filename}.json`);
 
     return (
         <Layout>
-            {post.cells.map((cell, index) =>
+            {props.object.cells.map((cell, index) =>
                 cell.cell_type === "markdown" ? (
                     <div key={index}>
                         {Parser(md.render(cell.source.join("")))}

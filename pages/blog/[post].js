@@ -7,20 +7,10 @@ import SocialMediaNav from "../../src/Components/SocialMediaNav";
 import ParticlesNetwork from "../../src/Components/ParticlesNetwok";
 import SectionWrapper from "../../src/Containers/SectionWrapper";
 import ToggleButton from "../../src/Components/ToggleButton";
+import fs from "fs";
+import path from "path";
 
-const Post = () => {
-    // const router = useRouter();
-    // const { post } = router.query;
-    const [filename, setFilename] = React.useState('');
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            console.log(window.location.href);
-            let post = window.location.href.split("/blog/")[1];
-            setFilename(post);
-        }
-    }, []);
-
+const Post = props => {
     const [enableParticles, setEnableParticles] = React.useState(true);
 
     return (
@@ -34,12 +24,34 @@ const Post = () => {
                     onClick={() => setEnableParticles(!enableParticles)}
                 />
                 <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh">
-                    {filename !== '' ? <PostWrapper filename={filename} /> : 'Loading...'}
+                    <PostWrapper object={props.body} />
                 </SectionWrapper>
             </Layout>
             <Footer />
         </div>
     );
 };
+
+export async function getStaticProps({params}) {
+    const id = params.post;
+    const fileToRead = path.join(process.cwd(), 'static-data/posts.json')
+    const data = JSON.parse(await fs.readFileSync(fileToRead))
+    const post = data.find(post => post.id === id)
+    return {
+        props: {
+            title: id,
+            body: post.body
+        },
+    };
+}
+
+export async function getStaticPaths() {
+    return {
+        paths: [
+            {params: {post: 'mes_notes_en_probabilites'}},
+        ],
+        fallback: false,
+    };
+}
 
 export default Post;
