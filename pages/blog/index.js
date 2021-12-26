@@ -53,7 +53,7 @@ const blog = () => {
     );
 };
 
-export async function getServerSideProps(context) {
+export async function getStaticProps() {
     return {
         props: {}
     };
