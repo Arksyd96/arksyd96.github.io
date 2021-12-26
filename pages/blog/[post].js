@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PostWrapper from "../../src/Containers/Post";
 import Header from "../../src/Containers/Header";
 import Layout from "../../src/Containers/Layout";
@@ -7,11 +7,13 @@ import SocialMediaNav from "../../src/Components/SocialMediaNav";
 import ParticlesNetwork from "../../src/Components/ParticlesNetwok";
 import SectionWrapper from "../../src/Containers/SectionWrapper";
 import ToggleButton from "../../src/Components/ToggleButton";
-import fs from "fs";
-import path from "path";
+
+const posts = require('../../static-data/posts.json');
 
 const Post = props => {
     const [enableParticles, setEnableParticles] = React.useState(true);
+
+    const post = posts.find(post => post.id === props.title)  
 
     return (
         <div className="App">
@@ -24,7 +26,7 @@ const Post = props => {
                     onClick={() => setEnableParticles(!enableParticles)}
                 />
                 <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh">
-                    <PostWrapper object={props.body} />
+                    <PostWrapper object={post.body} />
                 </SectionWrapper>
             </Layout>
             <Footer />
@@ -33,14 +35,10 @@ const Post = props => {
 };
 
 export async function getStaticProps({params}) {
-    const id = params.post;
-    const fileToRead = path.join(process.cwd(), 'static-data/posts.json')
-    const data = JSON.parse(await fs.readFileSync(fileToRead))
-    const post = data.find(post => post.id === id)
+    const title = params.post
     return {
         props: {
-            title: id,
-            body: post.body
+            title: title
         },
     };
 }
