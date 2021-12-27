@@ -26,7 +26,7 @@ const editorStyle = {
     backgroundColor: "rgba(255, 255, 255, 0.8)",
     borderRadius: "5px",
     fontSize: "1em",
-    margin: "0 2vw 0 2vw",
+    margin: "0 4vw",
 }
 
 const ImageWrapper = styled.div`

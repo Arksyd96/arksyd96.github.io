@@ -17,7 +17,7 @@ const Post = props => {
     return (
         <div className="App">
             <Header blog />
-            <Layout>
+            <Layout blog>
                 <SocialMediaNav />
                 <ParticlesNetwork enableParticles={enableParticles} />
                 <ToggleButton

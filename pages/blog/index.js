@@ -8,25 +8,80 @@ import ParticlesNetwork from "../../src/Components/ParticlesNetwok";
 import SectionWrapper from "../../src/Containers/SectionWrapper";
 import ToggleButton from "../../src/Components/ToggleButton";
 import Link from "next/link";
+import path from "path";
+import { promises as fs } from "fs";
 
-const ArticlesList = styled.ul`
+const PostsList = styled.ul`
     list-style: none;
     display: grid;
     justify-content: center;
     gap: 15px;
     grid-template-columns: repeat(auto-fill, 30vw);
     transition: all 0.3s ease-in-out;
-    margin: 0;
+    margin: 20vh 0 10vh 0;
     padding: 0;
     @media (max-width: 768px) {
         grid-template-columns: repeat(auto-fill, 100%);
     }
 `;
 
-const blog = () => {
-    const [enableParticles, setEnableParticles] = React.useState(true);
+const PostCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000000;
+    backdrop-filter: blur(8px);
+    min-height: 35vh;
+    padding: 15px;
+    border-radius: 1px;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 10px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-out;
+    cursor: pointer;
+    :hover {
+        transform: translateY(-15px);
+        box-shadow: 0px 4px 8px 8px rgba(190, 190, 190, 0.6);
+    }
+`;
 
-    const test = require("../../static-data/posts.json");
+const TagList = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    flex-wrap: wrap;
+`;
+
+const Tag = styled.span`
+    font-size: 0.8em;
+    color: #000000;
+    margin: 5px;
+    padding: 0 5px;
+    background-color: rgba(185, 185, 185, 0.8);
+    text-transform: uppercase;
+    white-space: nowrap;
+`
+const Description = styled.p`
+    font-size: 1em;
+`
+const Title = styled.h3`
+    font-size: 1.4em;
+    margin-bottom: 5px;
+`
+const Date = styled.p`
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+`
+
+const blog = ({ postsMetadata }) => {
+    const [enableParticles, setEnableParticles] = React.useState(true);
 
     return (
         <div className="App">
@@ -39,13 +94,22 @@ const blog = () => {
                     onClick={() => setEnableParticles(!enableParticles)}
                 />
                 <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh">
-                    <ArticlesList>
-                        {test.map((post_meta, index) => (
-                            <Link href={`/blog/${post_meta.id}`} key={index}>
-                                <a>{post_meta.id}</a>
+                    <PostsList>
+                        {postsMetadata.map((postMeta, index) => (
+                            <Link href={`/blog/${postMeta.id}`} key={index}>
+                                <PostCard>
+                                    <Date>{postMeta.date}</Date>
+                                    <Title>{postMeta.title}</Title>
+                                    <Description>{postMeta.description}</Description>
+                                    <TagList>
+                                        {postMeta.tags.map((tag, index) => (
+                                            <Tag key={index}>{tag}</Tag>
+                                        ))}
+                                    </TagList>
+                                </PostCard>
                             </Link>
                         ))}
-                    </ArticlesList>
+                    </PostsList>
                 </SectionWrapper>
             </Layout>
             <Footer />
@@ -54,8 +118,20 @@ const blog = () => {
 };
 
 export async function getStaticProps() {
+    const postsDirectory = path.join(process.cwd(), "static-data", "posts.json");
+    const posts = JSON.parse(await fs.readFile(postsDirectory, "utf8"));
+    const postsMetadata = posts.map(post => ({
+        id: post.id,
+        title: post.title,
+        tags: post.tags,
+        description: post.description,
+        date: post.date,
+    }));
+
     return {
-        props: {}
+        props: {
+            postsMetadata: postsMetadata
+        }
     };
 }
 
