@@ -8,16 +8,19 @@ import ParticlesNetwork from "../../src/Components/ParticlesNetwok";
 import SectionWrapper from "../../src/Containers/SectionWrapper";
 import ToggleButton from "../../src/Components/ToggleButton";
 
-const posts = require('../../static-data/posts.json');
+import { promises as fs } from "fs";
+import path from "path";
+
+// const posts = require('../../static-data/posts.json');
 
 const Post = props => {
-    const [enableParticles, setEnableParticles] = React.useState(true);
+    // const [enableParticles, setEnableParticles] = React.useState(true);
 
-    const post = posts.find(post => post.id === props.title)  
+    // const post = posts.find(post => post.id === props.title)  
 
     return (
         <div className="App">
-            <Header blog />
+            {/* <Header blog />
             <Layout>
                 <SocialMediaNav />
                 <ParticlesNetwork enableParticles={enableParticles} />
@@ -27,28 +30,29 @@ const Post = props => {
                 />
                 <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh">
                     <PostWrapper object={post.body} />
+                    {props.title}
                 </SectionWrapper>
             </Layout>
-            <Footer />
+            <Footer /> */}
+            {props.id}
         </div>
     );
 };
 
-export async function getStaticProps({params}) {
-    const title = params.post
+export async function getStaticPaths() {
+    const postsDirectory = path.join(process.cwd(), 'static-data', 'posts.json');
+    const posts = JSON.parse(await fs.readFile(postsDirectory, 'utf8'));
     return {
-        props: {
-            title: title
-        },
+        paths: posts.map(post => ({ params: { post: post.id } })),
+        fallback: false,
     };
 }
 
-export async function getStaticPaths() {
+export async function getStaticProps({ params }) {
     return {
-        paths: [
-            {params: {post: 'mes_notes_en_probabilites'}},
-        ],
-        fallback: false,
+        props: {
+            id: params.post
+        },
     };
 }
 

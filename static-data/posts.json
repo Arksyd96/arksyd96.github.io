@@ -4,7 +4,7 @@
         "description": "Mes notes sur les différents sujets de probabilités utils pour faire du Machine learning (Variables aléatoire,  Fonctions de distribution, Chaîne de Markov)",
         "tags": ["Probabilities", "Machine learning"],
         "thumbnail": "https://github.com/Arksyd96/ocr-license-plates-crnn/blob/master/text-from-image-ocr.ipynb",
-        "id": "mes_notes_en_probabilites",
+        "id": "1",
         "body": {
             "cells": [
                 {
@@ -346,5 +346,13 @@
             "nbformat": 4,
             "nbformat_minor": 2
         }
+    },
+    {
+        "title": "Bases en probabilités pour du Machine learning",
+        "description": "Mes notes sur les différents sujets de probabilités utils pour faire du Machine learning (Variables aléatoire,  Fonctions de distribution, Chaîne de Markov)",
+        "tags": ["Probabilities", "Machine learning"],
+        "thumbnail": "https://github.com/Arksyd96/ocr-license-plates-crnn/blob/master/text-from-image-ocr.ipynb",
+        "id": "2",
+        "body": {}
     }
 ]
