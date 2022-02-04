@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import styled from "@emotion/styled"
 
 const skills = require("../../static-data/skills.json");
 
@@ -11,19 +12,26 @@ const options = {
     initialRotationZ: 0,
 };
 
-const KeywordsSphere = () => {
-    const [width, setWidth] = useState(500);
-    const [height, setHeight] = useState(500);
+const SphereCanvas = styled.canvas`
+    width: 500px;
+    height: 500px;
+    @media (max-width: 768px) {
+        width: 350px;
+        height: 350px;
+    }
+`;
 
+const KeywordsSphere = props => {
     // Variables related to the canvas
+
     const canvasRef = useRef(null);
     let canvas = null;
     let ctx = null;
     // --------
     const π = Math.PI; // happy math!
     const {
-        radius = 150,
-        fontSize = 19,
+        radius = props.isMobile ? 100 : 150,
+        fontSize = props.isMobile ? 16 : 19,
         tilt = 0,
         initialVelocityX = 0,
         initialVelocityY = 0,
@@ -67,10 +75,10 @@ const KeywordsSphere = () => {
 
             // convert to cartesian and then draw.
             const alpha = 0.6 + 0.4 * (x / radius);
-            const size = fontSize + 2 + 5 * (x / radius);
+            const size = fontSize + 5 * (x / radius);
             ctx.fillStyle = `rgba(189, 148, 100, ${alpha})`;
             ctx.font = `${size}px "Roboto mono", monospace`;
-            ctx.fillText(kw, y + width / 2 - 20, -z + height / 2);
+            ctx.fillText(kw, y + 500 / 2 - 20, -z + 500 / 2);
 
             ix--;
             if (ix < 0) {
@@ -107,21 +115,14 @@ const KeywordsSphere = () => {
 
     // Setuping the canvas and the animation
     useEffect(() => {
-        if (window !== undefined) {
-            if (window.innerWidth > 768) {
-                setWidth(window.innerWidth / 100 * 40);
-                setHeight(window.innerWidth / 100 * 40);
-            }
-        }
-
         canvas = canvasRef.current;
         ctx = canvas.getContext("2d");
         ctx.textAlign = "center";
         // Hi-DPI support
-        canvas.width = width * 2;
-        canvas.height = height * 2;
-        canvas.style.width = `${width}px`;
-        canvas.style.height = `${height}px`;
+        canvas.width = 1000;
+        canvas.height = 1000;
+        /* canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`; */
         ctx.scale(2, 2);
 
         startLoop();
@@ -150,22 +151,10 @@ const KeywordsSphere = () => {
         canvas.addEventListener("mouseup", (e) => (clicked = false));
         canvas.addEventListener("mouseleave", (e) => (clicked = false));
 
-        /* if (window !== undefined) {
-            window.addEventListener("resize", () => {
-                if (window.innerWidth > 768) {
-                    setVisibility(true);
-                } else {
-                    setVisibility(false);
-                }
-            });
-        } */
     }, []);
 
     return (
-        <canvas
-            /* style={{ display: visible ? "block" : "none" }} */
-            ref={canvasRef}
-        />
+        <SphereCanvas ref={canvasRef}/>
     );
 };
 

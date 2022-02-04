@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vs, vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import {
+    vs,
+    vscDarkPlus,
+} from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 import Parser from "html-react-parser";
 const md = require("markdown-it")();
@@ -20,22 +23,27 @@ const Layout = styled.div`
     padding: 2vh 4vw;
     box-sizing: border-box;
     margin: 15vh 0 10vh 0;
+    @media (max-width: 768px) {
+        font-size: 0.4em;
+        margin: 10vh 0 10vh 0;
+    }
 `;
 
 const editorStyle = {
     backgroundColor: "rgba(255, 255, 255, 0.8)",
-    borderRadius: "5px",
-    fontSize: "1em",
-    margin: "0 4vw",
-}
+    borderRadius: "2px",
+    fontSize: "0.9em",
+    margin: "0",
+    padding: "5px 2px",
+};
 
 const ImageWrapper = styled.div`
     display: flex;
     justify-content: center;
     margin: 2vh 2vw 0 2vw;
-`
+`;
 
-const Post = props => {
+const Post = (props) => {
     // getting the post from the url
     // const post = require(`../../static-data/posts/${props.filename}.json`);
 
@@ -60,16 +68,28 @@ const Post = props => {
                         {cell.outputs.map((output, index) =>
                             output.output_type === "display_data" ? (
                                 <ImageWrapper key={index}>
-                                    <img src={'data:image/png;base64,' + output.data["image/png"]} key={index} style={{width: '100%'}}/>
+                                    <img
+                                        src={
+                                            "data:image/png;base64," +
+                                            output.data["image/png"]
+                                        }
+                                        key={index}
+                                        style={{ width: "100%" }}
+                                    />
                                 </ImageWrapper>
-                            ) : ( // stream
-                                <SyntaxHighlighter 
-                                    language='cal'
+                            ) : (
+                                // stream
+                                <SyntaxHighlighter
+                                    language="cal"
                                     style={vscDarkPlus}
                                     key={index}
-                                    customStyle={{margin: "2vh 2vw 0 2vw", borderRadius: "5px", backgroundColor: "rgba(0, 0, 0, 0.5)"}}
+                                    customStyle={{
+                                        margin: "1vh 0vw",
+                                        borderRadius: "2px",
+                                        backgroundColor: "rgba(0, 0, 0, 0.5)",
+                                    }}
                                 >
-                                    {output.text.join('')}
+                                    {output.text.join("")}
                                 </SyntaxHighlighter>
                             )
                         )}

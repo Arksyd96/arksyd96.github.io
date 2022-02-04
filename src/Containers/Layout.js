@@ -2,8 +2,11 @@ import React from "react";
 import Styled from '@emotion/styled'
 
 const StyledLayout = Styled.main`
-    margin: ${props => props.blog ? '0 20%' : '0 10%'};
+    margin: ${props => props.blog ? '0 18%' : '0 10%'};
     box-sizing: border-box;
+    @media (max-width: 1024px) {
+        margin: 0 5%;
+    }
 `;
 
 const Layout = (props) => {

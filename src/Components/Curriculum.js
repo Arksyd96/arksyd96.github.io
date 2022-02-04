@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "@emotion/styled"
 import KeywordsSphere from "./KeywordsSphere";
 import Title from "./Title";
@@ -125,7 +125,7 @@ const Curriculum = () => {
                         );
                     })}
                 </List>
-                <KeywordsSphere />
+                <KeywordsSphere/>
             </Layout>
         </SectionWrapper>
     );

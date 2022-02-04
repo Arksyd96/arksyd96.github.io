@@ -2,8 +2,7 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
-const HeaderWrapper = styled.header(
-    (props) => `
+const HeaderWrapper = styled.header`
     position: fixed;
     top: 0;
     display: flex;
@@ -25,8 +24,7 @@ const HeaderWrapper = styled.header(
         padding: 0 5%;
         height: 6vh;
     }
-`
-);
+`;
 
 const List = styled.ul`
     display: flex;
@@ -144,6 +142,9 @@ const Header = (props) => {
                                 </Anchor>
                                 <Anchor href="#contact">
                                     Contact me
+                                </Anchor>
+                                <Anchor href="/blog">
+                                    Blog
                                 </Anchor>
                             </Dropdown>
                         </React.Fragment>
