@@ -25,6 +25,7 @@
     "next": "latest",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-ipynb-renderer": "^0.3.0",
     "react-syntax-highlighter": "^15.4.4"
   },
   "license": "ISC",

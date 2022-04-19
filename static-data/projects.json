@@ -1,13 +1,13 @@
 [
     {
-        "title": "CRNN for licence plates OCR",
+        "title": "C-RNN for licence plates OCR",
         "description": "Characters recognition from license plates using convolutional recurrent neural networks.",
         "tags": ["Python", "Keras", "Numpy", "CRNN"],
         "thumbnail": "https://cdn.discordapp.com/attachments/874390691931902022/878748098879434782/ocr.png",
         "link": "https://github.com/Arksyd96/ocr-license-plates-crnn/blob/master/text-from-image-ocr.ipynb"
     },
     {
-        "title": "Aerial-to-topographic image translation (CGAN)",
+        "title": "Aerial-to-topographic image translation (cGAN)",
         "description": "Implementation of a pix2pix model that translates aerial images to topographic maps.",
         "tags": ["Tensorflow", "Numpy", "GAN", "Image translation"],
         "thumbnail": "https://cdn.discordapp.com/attachments/874390691931902022/876508094723657748/pix2pix.png",
@@ -21,7 +21,7 @@
         "link": "https://github.com/Arksyd96/anomaly-detection-autoencoder/blob/master/Anomaly-detection.ipynb"
     },
     {
-        "title": "Selective search algorithme",
+        "title": "Selective search algorithm",
         "description": "Region proposal algorithm used for object detection, based on computing groupings color, texture, size, and shape similarities.",
         "tags": ["Object detection", "Numpy"],
         "thumbnail": "https://cdn.discordapp.com/attachments/874390691931902022/878937561098240070/ssa.jpg",
@@ -58,8 +58,15 @@
     {
         "title": "Implementation of a perceptron for logistic regression",
         "description": "Binary image classification using a single neuron model (Perceptron).",
-        "tags": ["Python", "Numpy"],
+        "tags": ["Python", "Numpy", "Neural networks"],
         "thumbnail": "https://cdn.discordapp.com/attachments/874390691931902022/889117242674008084/Perceptron.jpg",
         "link": "https://nbviewer.jupyter.org/github/Arksyd96/perceptron_implementation_for_logistic_regression/blob/master/perceptron_implementation_for_logistic_regression.ipynb"
+    },
+    {
+        "title": "Multilinear regression with NumPy",
+        "description": "Implementation of a gradient descent regression for a multilinear regression model using NumPy (Fully vectorized).",
+        "tags": ["Python", "Numpy", "Regression"],
+        "thumbnail": "https://cdn.discordapp.com/attachments/942123233774297179/942123381371863171/nn.jpg",
+        "link": "http://localhost:3000/blog/multivariate_linear_regression_numpy"
     }
 ]

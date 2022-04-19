@@ -29,12 +29,13 @@ const PostCard = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.8);
     color: #000000;
-    backdrop-filter: blur(8px);
+    background-color: #ffffff;
+    /* border: 1px solid #000000; */
+    box-shadow: 0px 2px 4px 4px rgba(230, 230, 230, 0.6);
     min-height: 35vh;
     padding: 15px;
-    border-radius: 1px;
+    border-radius: 0.1em;
     box-sizing: border-box;
     overflow: hidden;
     margin: 10px;
@@ -86,13 +87,13 @@ const blog = ({ postsMetadata }) => {
     return (
         <div className="App">
             <Header blog />
-            <Layout>
+            <Layout blog>
                 <SocialMediaNav />
-                <ParticlesNetwork enableParticles={enableParticles} />
+                {/* <ParticlesNetwork enableParticles={enableParticles} />
                 <ToggleButton
                     checked={enableParticles}
                     onClick={() => setEnableParticles(!enableParticles)}
-                />
+                /> */}
                 <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh">
                     <PostsList>
                         {postsMetadata.map((postMeta, index) => (

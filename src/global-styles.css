@@ -11,6 +11,8 @@ body, body>div {
 }
 .App {
     display: flex;
+    background-color: #fafafa;
+    z-index: 1;
     flex-direction: column;
     font-family: "Rubik", monospace;
     width: 100%;
