@@ -243,8 +243,10 @@
                "- $\\mathbb{E}[X] = \\frac{1}{p}$  \n",
                "- $V[X] = \\frac{q}{p^2} = \\frac{1 - p}{p^2}$ \n",
                "\n",
-               "**Exemple**: Lancer de pièce de monnaie truquée avec les probabilités $P(pile) = p$ et $P(face) = 1 - p = q$. soit $X$ le nombre de lancers pour obtenir pile pour la première fois, $X$ suit alors une loi géométrique. Dans cet exemple, le paramètre $k$ est le nombre de lancers total.  \n",
-               "Pour $k = 5$ (5 lancers), la probabilité d'avoir pile pour la première fois est $pqqqq = pq^4$. L'espérence dans ce cas et la probabilité moyenne d'avoir pile, avec $k = 5$ on obtient $\\mathbb{E}[X = 5] = \\frac{1}{5} = 20\\%$ de chances.\n",
+               "**Exemple**: Lancer de pièce de monnaie truquée avec les probabilités $P(pile) = 0.1$ et $P(face) = 1 - p = 0.9$. soit $X$ le nombre de lancers pour obtenir pile pour la première fois, $X$ suit alors une loi géométrique. Dans cet exemple, le paramètre $k$ est le nombre de lancers total.  \n",
+               "Pour $k = 5$ (5 lancers), la probabilité d'avoir pile pour la première fois est $pqqqq = pq^4$. L'espérence dans ce cas est le nombre moyen de lancers pour avoir pile, avec $p = 0.1$ on obtient $\\mathbb{E}[X] = \\frac{1}{0.1} = 10$ lancers en moyenne. \n",
+               "\n",
+               "La loi géométrique est souvent utilisée pour déterminer la durée de vie d'un phénomène (par exemple, durée de vie d'une ampoule).\n",
                "\n",
                "#### **2. Loi de Poisson :**\n",
                "Soit $\\lambda > 0$. Une variable aléatoir discrète $X$ suit une loi de Poisson de paramètre $\\lambda$ et noté $X \\sim \\mathcal{P}(\\lambda)$ si :\n",
@@ -255,7 +257,7 @@
                "- $\\mathbb{E}[X] = \\lambda$\n",
                "- $V[X] = \\lambda$\n",
                "\n",
-               "*Note* la loi de Poisson est la loi des phénomènes rares et des petites probabilités, généralement utiliser pour modéliser des systèmes de file d'attente. Pour plus d'informations, consulter ce [lien](https://fr.wikipedia.org/wiki/Loi_de_Poisson).\n",
+               "*Note* la loi de Poisson est la loi des phénomènes rares et des petites probabilités, généralement utilisée pour modéliser des systèmes de file d'attente. Pour plus d'informations, consulter ce [lien](https://fr.wikipedia.org/wiki/Loi_de_Poisson).\n",
                "\n",
                "#### **3.Loi exponentielle :**\n",
                "$X$ est une variable aléatoire continue suivant la loi exponentielle de paramètre $a > 0$, note $X \\sim \\mathcal{e}(a)$ si elle est absolument continue et admet pour densité :\n",
@@ -298,7 +300,7 @@
                "Le succès est définit par une probabilité $p$ et l'échec par une probabilité $q = 1 - p$.\n",
                "Le paramètre de l'expérience est $p$, la probabilité d'un succès.  \n",
                "**Exemple**: Pour un lancer de dé, la probabilité d'avoir un 6, étant le succès, est définit par $p = \\frac{1}{6}$.  \n",
-               "$X$ est une variable aléatoire qui est définit par $X=1$ en cas de réussite et $X=0$ en cas d'échec. $X$ suit alors une loi de Bernoulli de paramètre $p$ note $X \\sim \\mathcal{B}(p)$.  \n",
+               "$X$ est une variable aléatoire qui est définit par $X=1$ en cas de réussite et $X=0$ en cas d'échec. $X$ suit alors une loi de Bernoulli de paramètre $p$ noté $X \\sim \\mathcal{B}(p)$.  \n",
                "$X$ admet une espérence et une variance :\n",
                "- $\\mathbb{E}[X] = 1 \\times p + 0 \\times (1 - p) = p$\n",
                "- $V[X] = p(1-p)$\n",
@@ -503,6 +505,7 @@
             "nbformat": 4,
             "nbformat_minor": 2
            }
+           
            
     },
     {
