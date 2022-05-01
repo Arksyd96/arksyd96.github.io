@@ -47,9 +47,9 @@ const Post = (props) => {
                     </div>
                 ) : (
                     <React.Fragment key={index}>
-                        <Lowlight language="python" value={cell.source.join("")} />
+                        <Lowlight language="python" value={cell.source.join("")}/>
                         {cell.outputs.map((output, index) =>
-                            output.output_type === "display_data" ? (
+                            (output.output_type === "display_data" || output.output_type === "execute_result") ? (
                                 <ImageWrapper key={index}>
                                     <img
                                         src={
@@ -57,10 +57,14 @@ const Post = (props) => {
                                             output.data["image/png"]
                                         }
                                         key={index}
-                                        style={{ width: "60%" }}
+                                        style={{ width: "auto" }}
                                     />
                                 </ImageWrapper>
-                            ) : <Log><Lowlight language="python" value={output.text.join("")} /></Log>
+                            ) : (
+                                output.output_type === "stream" ? (
+                                    <Log><Lowlight language="python" value={output.text.join("")} /></Log>
+                                ) : null
+                            )
                         )}
                     </React.Fragment>
                 )
