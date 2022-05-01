@@ -4,9 +4,7 @@ import Header from "../../src/Containers/Header";
 import Layout from "../../src/Containers/Layout";
 import Footer from "../../src/Containers/Footer";
 import SocialMediaNav from "../../src/Components/SocialMediaNav";
-import ParticlesNetwork from "../../src/Components/ParticlesNetwok";
 import SectionWrapper from "../../src/Containers/SectionWrapper";
-import ToggleButton from "../../src/Components/ToggleButton";
 import Link from "next/link";
 import path from "path";
 import { promises as fs } from "fs";
@@ -82,18 +80,22 @@ const Date = styled.p`
 `
 
 const blog = ({ postsMetadata }) => {
-    const [enableParticles, setEnableParticles] = React.useState(true);
+    const [isVisible, setIsVisible] = React.useState(true)
+    React.useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                setIsVisible(false)
+            } else {
+                setIsVisible(true)
+            }
+        })
+    })
 
     return (
         <div className="App">
-            <Header blog />
+            <Header blog isVisible={isVisible}/>
             <Layout blog>
                 <SocialMediaNav />
-                {/* <ParticlesNetwork enableParticles={enableParticles} />
-                <ToggleButton
-                    checked={enableParticles}
-                    onClick={() => setEnableParticles(!enableParticles)}
-                /> */}
                 <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh">
                     <PostsList>
                         {postsMetadata.map((postMeta, index) => (

@@ -21,7 +21,7 @@ const ParticlesNetwork = (props) => {
     const particles = [];
     let interactionParticle = null;
     const velocity = 30; // the higher the faster
-    const density = 6000; // the lower the more particles
+    const density = 8000; // the lower the more particles
     const maxConnectionDistance = 110; // max distance between particles to create a connection
     let initialized = false;
 

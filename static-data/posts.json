@@ -12,9 +12,8 @@
               "metadata": {},
               "source": [
                "# **Linear algebra**  \n",
-               "$\\hspace{1cm}$\n",
-               "### **Vectors:**\n",
-               "#### 1. *Definition*\n",
+               "### Vectors:\n",
+               "#### 1. Definition\n",
                "Vectors can be interpreted differently depending on the context. Originally, in mathematics and physics, vectors were used to describe a direction and magnitude. Most common vectors are Euclidean vectors, which carries a point $A$ to a point $B$ in a straight line, noted $\\vec{AB}$. The magnitude of $\\vec{AB}$ is the distance between $A$ and $B$. The direction of $\\vec{AB}$ is the angle between straight line $\\vec{AB}$ and the unit vector $\\vec{O}$ (arrow that defines the abscissa, acts like an origin of the vector space).\n",
                "\n",
                "In computer science, a vector is a sequence of numbers defined as a one dimensional array. Unlike Euclidean vectors, vectors in computer science are not necessarily straight lines. For example, a vector can be a sequence of numbers that represent a point in a two dimensional space or more. Those numbers are called scalars. A scalar is just a floating point number, and can also be seen as a real number even in the Euclidean geometry.\n",
@@ -25,7 +24,7 @@
                "\n",
                "**Note**: A vector space is simply a set of vectors.\n",
                "\n",
-               "#### 2. *Arithmetic operations*\n",
+               "#### 2. Arithmetic operations\n",
                "Suppose $V_A$ and $V_B$ are vectors. We can add them together, subtract them, multiply them, and divide them as long as the dimensions are the same.\n",
                "$$v_a + v_b = \\begin{bmatrix}x_0 + y_0 & x_1 + y_1 & ... & x_n + y_n\\end{bmatrix}$$\n",
                "Where $n$ is the number of elements in the vectors.  \n",
@@ -60,7 +59,7 @@
               "cell_type": "markdown",
               "metadata": {},
               "source": [
-               "#### 3. *Inner product (dot product):*\n",
+               "#### 3. Inner product (dot product):\n",
                "The inner product of two vectors $V_A$ and $V_B$ is the sum of the products of the corresponding elements:\n",
                "$$\\langle v_a, v_b \\rangle = \\sum_{i=0}^{n} x_i \\times y_i$$\n",
                "**Note**: $\\langle v_a, v_b \\rangle$ can also be written as $v_a \\cdot v_b$."
@@ -87,7 +86,7 @@
               "cell_type": "markdown",
               "metadata": {},
               "source": [
-               "#### 4. *Norms:*\n",
+               "#### 4. Norms:\n",
                "The norm of a vector $v_a$ is a function that outputs a non-negative real number $norm: X \\rightarrow \\mathbb{R}$ where $X$ is the vector space. This real number can have different meanings depending on the context. For example, the Euclidean norm or 2-norm can be used to measure the distance from the origin.\n",
                "$$|v_a|_2 = \\sqrt{\\sum_{i=0}^{n} x_i^2}$$\n",
                "The absolute value of a vector is a 1-norm and is represents the magnitude of the vector.\n",
@@ -100,7 +99,7 @@
                "- $p > 2$: the p-norm is the p-th root of the sum of the p-th powers of the elements of the vector.\n",
                "$$|v_a|_p = \\left({\\sum_{i=0}^{n} |x_i|^p}\\right)^{\\frac{1}{p}}$$\n",
                "\n",
-               "#### 5. *Linear combination:* \n",
+               "#### 5. Linear combination: \n",
                "The linear combination of a set $V$ of vectors is the sum of all the vectors in $V$ multiplied by their corresponding scalar coefficients.\n",
                "$$v = a_1v_1 + a_2v_2 + ... + a_nv_n$$ \n",
                "**e. g.** $(a_1, a_2, a_3) = a_1(1, 0, 0) + a_2(0, 1, 0) + a_3(0, 0, 1)$\n",
@@ -114,7 +113,7 @@
                "if we put $(1) - (2) = 0$ and $c_i := a_i - b_i$ then we have:  \n",
                "$\\Longrightarrow c_1v_1 + c_2v_2 + ... + c_nv_n = 0$; if the only solution to this linear combination is $c = [0, 0, ..., 0]$ then the vectors are linearly independent, otherwise they are dependent.\n",
                "\n",
-               "#### 7. *Orthogonal and orthonormal vectors*\n",
+               "#### 7. Orthogonal and orthonormal vectors\n",
                "A vector $v_a$ is said to be orthogonal to a vector $v_b$ if the inner product of $v_a$ and $v_b$ is zero. From a geometric point of view, we say that 2 vectors are orthogonal if they are perpendicular to each other.\n",
                "$$v_a, v_b \\in V \\Longrightarrow \\langle v_a, v_b \\rangle = 0$$\n",
                "\n",
@@ -123,21 +122,26 @@
                "\n",
                "A set of vectors $V$ is said to be orthonormal if it is mutually orthogonal and every vector is a unit vector. A unit vector (or normal vector) is a vector that has a magnitude (or norm) of 1, so for example:\n",
                "\n",
-               "$$\\text{we put as vector set} \\hspace{1em} V = \\left\\{\\begin{bmatrix}1 \\\\ 0 \\\\ -1\\end{bmatrix}, \\begin{bmatrix}1 \\\\ \\sqrt{2} \\\\ 1\\end{bmatrix}, \\begin{bmatrix}1 \\\\ -\\sqrt{2} \\\\ 1\\end{bmatrix}\\right\\}$$\n",
+               "$$\\text{we put as vector set} \\;\\;\\; V = \\left\\{\\begin{bmatrix}1 \\\\ 0 \\\\ -1\\end{bmatrix}, \\begin{bmatrix}1 \\\\ \\sqrt{2} \\\\ 1\\end{bmatrix}, \\begin{bmatrix}1 \\\\ -\\sqrt{2} \\\\ 1\\end{bmatrix}\\right\\}$$\n",
                "\n",
                "Those vectors are orthogonal but not orthonormal, $\\forall v_i, v_j \\in V | i \\neq j \\Rightarrow \\langle v_i, v_j \\rangle = 0$.  \n",
-               "$$\\text{we put} \\hspace{1em} u_i = \\frac{v_i}{|v_i|}; \\forall v_i \\in V$$\n",
+               "$$\\text{we put} \\;\\;\\; u_i = \\frac{v_i}{|v_i|}; \\forall v_i \\in V$$\n",
                "The set of vectors $u_i$ is orthogonal and orthonormal, its also called the orthonormal basis of $V$.\n",
                "\n",
-               "#### 8. *Cosine similarity:*\n",
+               "#### 8. Cosine similarity:\n",
                "The cosine similarity between two vectors $v_a$ and $v_b$ is the cosine of the angle between the vectors. This formula can be derived from the inner product (dot product) of two vectors in an Euclidean space. The original inner product formula is:\n",
-               "$$\\langle \\vec{u}, \\vec{v} \\rangle = \\|\\vec{u}\\| \\times \\|\\vec{v}\\| \\times cos(\\widehat{\\vec{u}, \\vec{v}})$$\n",
+               "$$\\langle \\vec{u}, \\vec{v} \\rangle = \\|\\vec{u}\\| \\times \\|\\vec{v}\\| \\times cos(\\hat{\\vec{u}, \\vec{v}})$$\n",
                "If we put $\\theta$ as the angle between the vectors, then the cosine similarity formula is:\n",
                "$$\\cos \\theta = \\frac{\\langle v_a, v_b \\rangle}{|v_a| \\times |v_b|}$$\n",
                "The value of the cosine similarity is between -1 and 1. -1 if the two vectors are in different directions, 0 if they are orthogonal, and 1 if they are colinear and therefore, a positive scalar $k$ exists such as $\\vec{u} = k\\vec{v}$. Cosine similarity is used as a metric to measure the similarity between two vectors, the closer the value is to 1, the more similar the vectors are.\n",
                "\n",
                "### **Matrices:**"
               ]
+             },
+             {
+              "cell_type": "markdown",
+              "metadata": {},
+              "source": []
              }
             ],
             "metadata": {
@@ -165,9 +169,7 @@
             },
             "nbformat": 4,
             "nbformat_minor": 2
-           }
-           
-                 
+           }                 
     },
     {
         "title": "The essential for AI: Probability (French)",
@@ -183,7 +185,6 @@
               "source": [
                "(Référence des formules: Bibm@th)\n",
                "# **Les variables aléatoires** \n",
-               "$\\hspace{1cm}$\n",
                "\n",
                "## **1. Variables aléatoires discrètes :**\n",
                "Une variable aléatoire discrète est une application $X$ de $\\Omega$ (Univers, contenant toutes les possibilités) dans $E$ tel que $X(\\Omega)$ soit fini ou dénombrable.\n",
@@ -526,7 +527,6 @@
               "metadata": {},
               "source": [
                "# **Machine learning**\n",
-               "$\\hspace{1cm}$\n",
                "### *Introduction*\n",
                "- Machine learning helps to reproduce tasks made by humans and those we cannot program by hand. It is also used for data mining and self-customizing programs (Customizing preferences and data).\n",
                "- ML gives the capability to machines to learn without being explicitly programmed.\n",
@@ -680,7 +680,7 @@
                "#### 1. Regularization applied to linear regression:\n",
                "By applying the regularization term we've seen earlier, the gradient descent function becomes as follow:  \n",
                "$$\\theta_0 := \\theta_0 - \\frac{\\eta}{m}\\sum^m_{i=0}(h_{\\theta}(x^{(i)}) - y^{(i)})x_0^{(i)}$$\n",
-               "$$\\theta_j := \\theta_j - \\frac{\\eta}{m}\\sum^m_{i=0}(h_{\\theta}(x^{(i)}) - y^{(i)})x_j^{(i)} + \\frac{\\lambda}{m}\\theta_j \\hspace{1cm} j \\in \\{1, 2, ..., n_{features}\\}$$\n",
+               "$$\\theta_j := \\theta_j - \\frac{\\eta}{m}\\sum^m_{i=0}(h_{\\theta}(x^{(i)}) - y^{(i)})x_j^{(i)} + \\frac{\\lambda}{m}\\theta_j \\;\\;\\; j \\in \\{1, 2, ..., n_{features}\\}$$\n",
                "\n",
                "By grouping $\\theta_j$, the second formula can be summarized as:\n",
                "$$\\theta_j := \\theta_j(1 - \\eta\\frac{\\lambda}{m}) - \\frac{\\eta}{m}\\sum^m_{i=0}(h_{\\theta}(x^{(i)}) - y^{(i)})x_j^{(i)}$$\n",
@@ -696,7 +696,7 @@
                "$$J(\\theta) = \\frac{1}{m} \\sum_{i=1}^m \\left[ -y^{(i)} \\log(h_{\\theta}(x^{(i)})) - (1 - y^{(i)})\\log(1 - h_{\\theta}(x^{(i)})) \\right] + \\frac{\\lambda}{2m} \\sum_{j=1}^n \\theta_j^2$$\n",
                "We exclude the first parameter $\\theta_0$ from the sum since it's the bias term. We update the weights as the same way as in linear regression: \n",
                "$$\\theta_0 := \\theta_0 - \\frac{\\eta}{m}\\sum^m_{i=0}(h_{\\theta}(x^{(i)}) - y^{(i)})x_0^{(i)}$$\n",
-               "$$\\theta_j := \\theta_j - \\frac{\\eta}{m}\\sum^m_{i=0}(h_{\\theta}(x^{(i)}) - y^{(i)})x_j^{(i)} + \\frac{\\lambda}{m}\\theta_j \\hspace{1cm} j \\in \\{1, 2, ..., n_{features}\\}$$\n",
+               "$$\\theta_j := \\theta_j - \\frac{\\eta}{m}\\sum^m_{i=0}(h_{\\theta}(x^{(i)}) - y^{(i)})x_j^{(i)} + \\frac{\\lambda}{m}\\theta_j \\;\\;\\; j \\in \\{1, 2, ..., n_{features}\\}$$\n",
                "\n",
                "except that we use the logistic function instead of the linear function.\n",
                "$$h_{\\theta}(x) = \\frac{1}{1 + \\exp^{\\theta^TX}}$$"
@@ -726,7 +726,6 @@
               "metadata": {},
               "source": [
                "# Demonstration of the normal equation formula:\n",
-               "$\\hspace{1cm}$\n",
                "0. *We define the hypothesis and cost function as follow*:\n",
                "$$J(\\theta) = \\frac{1}{2m} \\sum_{i=1}^m (h_{\\theta}(x^{(i)}) - y^{(i)})^2$$ \n",
                "$$\\theta = \\begin{bmatrix}\\theta_{0} \\\\\\theta_{1} \\\\... \\\\\\theta_{n} \\end{bmatrix},x = \\begin{bmatrix}x_{0}^{(1)} & x_{0}^{(2)} & ... & x_{0}^{(m)}\\\\x_{1}^{(1)} & x_{1}^{(2)} & ... & x_{1}^{(m)} \\\\. & . & . & . \\\\x_{n}^{(1)} & x_{n}^{(2)} & ... & x_{n}^{(m)} \\end{bmatrix}, h_{\\theta}(x) = \\theta^{T}x$$  \n",
@@ -735,7 +734,7 @@
                "1. First we start by simplyfing the formula:\n",
                "    - Remove the $\\frac{1}{2m}$ since it has no impact when deriving.\n",
                "    - Eliminate the sum by introducing $(h - y)$ as a design matrix (Matrix that contains everything, it's shape will be $(n_{features}, m)$).\n",
-               "$$J(\\theta) = (\\begin{bmatrix} \\theta^Tx^{(1)} \\\\ \\theta^Tx^{(2)} \\\\ ... \\\\ \\theta^Tx^{(m)} \\end{bmatrix} - \\begin{bmatrix} y^{(1)} \\\\ y^{(2)} \\\\ ... \\\\ y^{(m)} \\end{bmatrix})²$$ \n",
+               "$$J(\\theta) = (\\begin{bmatrix} \\theta^Tx^{(1)} \\\\ \\theta^Tx^{(2)} \\\\ ... \\\\ \\theta^Tx^{(m)} \\end{bmatrix} - \\begin{bmatrix} y^{(1)} \\\\ y^{(2)} \\\\ ... \\\\ y^{(m)} \\end{bmatrix})^{2}$$ \n",
                "$$J(\\theta) = (\\begin{bmatrix} \\theta_0 x_0^{(1)} & \\theta_1 x_1^{(1)} & ... & \\theta_{n} x_n^{(1)} \\\\ \\theta_{0} x_0^{(2)} & \\theta_1x_1^{(2)} & ... & \\theta_{n} x_n^{(2)} \\\\ . & . & . & . \\\\ \\theta_0x_0^{(m)} & \\theta_1x_1^{(m)} & ... & \\theta_{n} x_n^{(m)}\\end{bmatrix} - \\begin{bmatrix}y^{(1)}\\\\y^{(2)}\\\\...\\\\y^{(m)}\\end{bmatrix})^2$$\n",
                "- *Note* that dimension of $x$ written this way becomes $m \\times n$ instead of $n \\times m$. This allows use to rewrite it in a more general form:\n",
                "$$J(\\theta) = (X\\theta - Y)^2$$\n",
@@ -1589,7 +1588,6 @@
               "metadata": {},
               "source": [
                "# **Implementation of a shallow neural network for classification using Numpy**\n",
-               "$\\hspace{1cm}$\n",
                "## 1. Imports\n",
                "- **Numpy** for data processing (More precisely: speeds up the computation time with it's vectorization functions).\n",
                "- **matplotlib** to visualize a sample of images.\n",
@@ -1925,7 +1923,6 @@
               "metadata": {},
               "source": [
                "# **Multivariate regression using Numpy only**\n",
-               "$\\hspace{1cm}$\n",
                "### 1. Imports\n",
                "- **Numpy** for data processing (More precisely: speeds up the computation time with its vectorization functions)\n",
                "- **matplotlib** to visualize a sample of images.\n",

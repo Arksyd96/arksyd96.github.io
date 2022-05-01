@@ -56,12 +56,12 @@ const Home = () => {
             <Description>
                 I'm a machine learning and artificial intelligence engineer specialized 
                 in deep learning and computer vision models (and occasionally working 
-                on web development and designing). I'm currently working on an implementation of a {' '}
-                <Link href="https://medium.com/wisio/a-gentle-introduction-to-doc2vec-db3e8c0cce5e"
+                on web development and designing). I'm currently working on an implementation of {' '}
+                <Link href="https://en.wikipedia.org/wiki/Power_iteration"
                     target="_blank">
-                    doc2vec word embedding model
+                    Power iteration algorithm
                 </Link>
-                .
+                {" "} for eigenvalue decomposition.
             </Description>
             <br />
             <Button 

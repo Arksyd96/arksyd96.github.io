@@ -22,15 +22,16 @@ const Icon = styled.a`
     font-size: 24px;
     width: 40px;
     height: 40px;
-    border: 1px solid #FFFFFF;
     text-decoration: none;
     margin: 5px 5px;
     background: transparent;
     border-radius: 100%;
     cursor: pointer;
     transition: background 0.1s ease-in;
+    color: ${props => props.blog ? 'orange' : '#FFFFFF'};
+    border: ${props => props.blog ? '1px solid orange' : '1px solid #FFFFFF'};
     :hover {
-        background: orange;
+        background: ${props => props.blog ? 'transparent' : 'orange'};
         border: 1px solid orange;
     }
     @media (max-width: 768px) {
@@ -39,10 +40,10 @@ const Icon = styled.a`
 `;
 
 const Font = styled(FontAwesomeIcon)`
-    color: #FFFFFF;
+    color: ${props => props.blog ? 'orange' : '#FFFFFF'};
 `;
 
-const SocialMediaNav = () => {
+const SocialMediaNav = props => {
     const links = [
         {href: 'mailto:aghiles.kebaili.1998@gmail.com', icon: faEnvelope},
         {href: 'https://www.linkedin.com/in/aghiles-kebaili/', icon: faLinkedin},
@@ -52,8 +53,8 @@ const SocialMediaNav = () => {
     return (
         <IconsWrapper>
             {links.map((link, index) => (
-                <Icon key={index} href={link.href} target={index !== 0 ? '_blank' : ''}>
-                    <Font icon={link.icon} />
+                <Icon blog={props.blog} key={index} href={link.href} target={index !== 0 ? '_blank' : ''}>
+                    <Font blog={props.blog} icon={link.icon} />
                 </Icon>
             ))}
         </IconsWrapper>

@@ -14,6 +14,12 @@ module.exports = {
     //assetPrefix: '',
     assetPrefix: !debug ? "/" : "",
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+        if(!isServer) {
+            config.resolve.fallback = {
+                fs: "empty",
+                path: "empty",
+            }
+        }
         // Perform customizations to webpack config
         config.module.rules = config.module.rules.map((rule) => {
             if (rule.loader === "babel-loader") {

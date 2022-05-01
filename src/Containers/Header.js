@@ -110,6 +110,7 @@ const Header = (props) => {
         if (window.innerWidth < 768) {
             setIsMobile(true);
         }
+
     }, []);
 
     const scrollToHome = () => {
@@ -117,7 +118,7 @@ const Header = (props) => {
     };
 
     return (
-        <HeaderWrapper>
+        <HeaderWrapper style={props.isVisible ? {} : {transform: "translateY(-100%)"}}>
             <Logo className="logo-container" onClick={scrollToHome} />
             <nav>
                 <List>
