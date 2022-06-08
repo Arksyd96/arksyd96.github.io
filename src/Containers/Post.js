@@ -15,11 +15,10 @@ Lowlight.registerLanguage("python", python);
 const Layout = styled.div`
     display: flex;
     flex-direction: column;
-    color: black;
     background-color: transparent;
     width: 100%;
-    padding: 2vh 4vw;
-    margin: 10vh 0 6vh 0;
+    padding: 4vh 4vw;
+    margin: 10vh 0 10vw 0;
     box-sizing: border-box;
     @media (max-width: 768px) {
         font-size: 0.4em;
@@ -27,8 +26,15 @@ const Layout = styled.div`
     }
 `;
 
+const TextWrapper = styled.div`
+    color: #333;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 1.25;
+`;
+
 const Log = styled.div`
-    border-top: 1px solid #ccc;
+    border: 1px solid #ccc;
 `;
 
 const ImageWrapper = styled.div`
@@ -37,32 +43,37 @@ const ImageWrapper = styled.div`
     margin: 2vh 2vw 0 2vw;
 `;
 
+const FixedImage = styled.img`
+    height: auto;
+    max-width: 100%;
+    display: block;
+`;
+
 const Post = (props) => {
     return (
-        <Layout>
+        <Layout className="blog-font">
             {props.object.cells.map((cell, index) =>
                 cell.cell_type === "markdown" ? (
-                    <div key={index}>
+                    <TextWrapper className="article-styles" key={index}>
                         {Parser(md.render(cell.source.join("")))}
-                    </div>
+                    </TextWrapper>
                 ) : (
                     <React.Fragment key={index}>
-                        <Lowlight language="python" value={cell.source.join("")}/>
+                        <Log><Lowlight language="python" value={cell.source.join("")}/></Log>
                         {cell.outputs.map((output, index) =>
                             (output.output_type === "display_data" || output.output_type === "execute_result") ? (
                                 <ImageWrapper key={index}>
-                                    <img
+                                    <FixedImage
                                         src={
                                             "data:image/png;base64," +
                                             output.data["image/png"]
                                         }
                                         key={index}
-                                        style={{ width: "auto" }}
                                     />
                                 </ImageWrapper>
                             ) : (
                                 output.output_type === "stream" ? (
-                                    <Log><Lowlight language="python" value={output.text.join("")} /></Log>
+                                    <Lowlight key={index} language="python" value={output.text.join("")} />
                                 ) : null
                             )
                         )}

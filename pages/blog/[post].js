@@ -3,7 +3,6 @@ import PostWrapper from "../../src/Containers/Post";
 import Header from "../../src/Containers/Header";
 import Layout from "../../src/Containers/Layout";
 import Footer from "../../src/Containers/Footer";
-import SocialMediaNav from "../../src/Components/SocialMediaNav";
 import SectionWrapper from "../../src/Containers/SectionWrapper";
 
 import "react-ipynb-renderer/dist/styles/grade3.css";
@@ -14,21 +13,24 @@ import path from "path";
 
 const Post = (props) => {
     const [isVisible, setIsVisible] = React.useState(true)
+    let lastScroll = 0
+    const handleScroll = () => {
+        const currentScroll = window.scrollY
+        setIsVisible(lastScroll > currentScroll || currentScroll < 400)
+        lastScroll = currentScroll
+    }
+
     React.useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                setIsVisible(false)
-            } else {
-                setIsVisible(true)
-            }
-        })
-    })
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [lastScroll])
 
     return (
         <div className="App">
             <Header blog isVisible={isVisible}/>
             <Layout blog>
-                <SocialMediaNav blog />
                 <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh">
                     <PostWrapper object={props.body} />
                 </SectionWrapper>

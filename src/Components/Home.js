@@ -50,7 +50,7 @@ const Link = Styled.a`
 
 const Home = () => {
     return (
-        <SectionWrapper id="home" offset={0} minHeight="100vh" invert apply>
+        <SectionWrapper id="home" offset={0} minHeight="90vh" invert apply color="transparent">
             <Hey>Hey, i'm</Hey>
             <Name>Kebaili Aghiles</Name>
             <Description>

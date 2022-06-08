@@ -14,7 +14,7 @@ const PostsList = styled.ul`
     display: grid;
     justify-content: center;
     gap: 15px;
-    grid-template-columns: repeat(auto-fill, 30vw);
+    grid-template-columns: repeat(auto-fill, 27vw);
     transition: all 0.3s ease-in-out;
     margin: 20vh 0 10vh 0;
     padding: 0;
@@ -81,15 +81,19 @@ const Date = styled.p`
 
 const blog = ({ postsMetadata }) => {
     const [isVisible, setIsVisible] = React.useState(true)
+    let lastScroll = 0
+    const handleScroll = () => {
+        const currentScroll = window.scrollY
+        setIsVisible(lastScroll > currentScroll || currentScroll < 400)
+        lastScroll = currentScroll
+    }
+
     React.useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 200) {
-                setIsVisible(false)
-            } else {
-                setIsVisible(true)
-            }
-        })
-    })
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [lastScroll])
 
     return (
         <div className="App">

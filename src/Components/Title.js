@@ -5,7 +5,7 @@ const Title = (props) => {
     const T = Styled.h1`
         color: ${props.color};
         font-weight: 500;
-        font-size: 2.5em;
+        font-size: 3.5em;
         margin-bottom: 50px;
         align-self: center;
         :before, :after {
@@ -27,7 +27,7 @@ const Title = (props) => {
             }
         }
 `;
-    return <T number={props.number}>{props.children}</T>
+    return <T color={props.color} number={props.number}>{props.children}</T>
 }
 
 export default Title   

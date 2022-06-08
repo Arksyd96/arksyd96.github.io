@@ -49,7 +49,7 @@ const Projects = () => {
     }
 
     return (
-        <SectionWrapper id="projects" offset={1100} minHeight="200vh" apply>
+        <SectionWrapper id="projects" offset={1100} minHeight="200vh" apply color='transparent'>
             <Title number="2" color="#FFFFFF">
                 Projects
             </Title>

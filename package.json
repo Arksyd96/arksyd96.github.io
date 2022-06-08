@@ -33,6 +33,7 @@
         "react-ipynb-renderer": "^0.3.0",
         "react-lowlight": "^3.0.0",
         "react-syntax-highlighter": "^15.4.4",
+        "react-vertical-timeline-component": "^3.5.2",
         "tls": "^0.0.1"
     },
     "license": "ISC",

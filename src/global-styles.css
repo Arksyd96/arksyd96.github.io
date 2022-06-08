@@ -14,8 +14,31 @@ body, body>div {
     background-color: #FFFFFF;
     z-index: 0;
     flex-direction: column;
-    font-family: "Rubik", monospace;
+    font-family: 'Source Sans Pro', sans-serif;
     width: 100%;
+}
+
+.article-styles h1 {
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.article-styles h2 {
+    font-size: 24px;
+    font-weight: 900;
+    margin-top: 4rem;
+}
+
+.article-styles p {
+    font-size: 18px;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.blog-font {
+    font-family: "Amiri", serif;
 }
 
 body::-webkit-scrollbar {
@@ -49,6 +72,14 @@ body::-webkit-scrollbar-thumb
     background-repeat: no-repeat;
 }
 
+.hljs {
+    white-space: pre-wrap;
+}
+
+.lowlight {
+    margin: 0;
+}
+
 .calendar-container::before {
     background-image: url(../assets/icons8-calendrier-64.png);
 }
@@ -75,4 +106,39 @@ body::-webkit-scrollbar-thumb
 
 .redirect-container {
     background-image: url(../assets/export.svg);
+}
+
+.logo {
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    background-size: contain;
+}
+
+.u_paris-logo {
+    background-image: url(../assets/u_paris.jpg);
+}
+
+.ubo-logo {
+    background-image: url(../assets/ubo.jpg);
+}
+
+.ubo_band-logo {
+    background-image: url(../assets/ubo_band.png);
+}
+
+.usthb-logo {
+    background-image: url(../assets/usthb.jpg);
+}
+
+.stellantis-logo {
+    background-image: url(../assets/stellantis.png);
+}
+
+.stellantis_band-logo{
+    background-image: url(../assets/stellantis_band.png);
+}
+
+.litis-logo {
+    background-image: url(../assets/litis.png);
 }

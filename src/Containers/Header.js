@@ -10,15 +10,15 @@ const HeaderWrapper = styled.header`
     justify-content: space-between;
     flex-direction: row;
     width: 100%;
-    height: 10vh;
+    height: 8vh;
     padding: 0 10%;
     box-sizing: border-box;
     align-self: center;
     transition: all 0.5s ease;
-    backdrop-filter: blur(6px);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    backdrop-filter: ${(props) => (props.blog ? "none" : "blur(6px)")};
+    background-color: ${(props) => (props.blog ? "black" : "rgba(20, 20, 20, 0.5)")};
+    box-shadow: rgba(50, 50, 93, 0.5) 0px 13px 27px -5px,
         rgba(80, 80, 80, 0.3) 0px 8px 16px -8px;
-    background-color: rgba(20, 20, 20, 0.5);
     z-index: 11;
     @media (max-width: 768px) {
         padding: 0 5%;
@@ -113,18 +113,22 @@ const Header = (props) => {
 
     }, []);
 
-    const scrollToHome = () => {
-        window.scrollTo(0, 0);
+    const HomePage = () => {
+        if (props.blog) {
+            location.href = "/";
+        } else {
+            window.scrollTo(0, 0);
+        }
     };
 
     return (
-        <HeaderWrapper style={props.isVisible ? {} : {transform: "translateY(-100%)"}}>
-            <Logo className="logo-container" onClick={scrollToHome} />
+        <HeaderWrapper blog={props.blog} style={props.isVisible ? {} : {transform: "translateY(-100%)"}}>
+            <Logo className="logo-container" onClick={HomePage} />
             <nav>
                 <List>
                     {props.blog ? (
                         isMobile ? null : (
-                            <Link href="/">
+                            <Link href="/blog">
                                 <Anchor number="1">Home</Anchor>
                             </Link>
                         )

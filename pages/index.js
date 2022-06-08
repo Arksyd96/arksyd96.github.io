@@ -4,16 +4,20 @@ import Body from '../src/Containers/Body'
 import Footer from '../src/Containers/Footer'
 
 const App = () => {
-    const [isVisible, setIsVisible] = useState(true)
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                setIsVisible(false)
-            } else {
-                setIsVisible(true)
-            }
-        })
-    })
+    const [isVisible, setIsVisible] = React.useState(true)
+    let lastScroll = 0
+    const handleScroll = () => {
+        const currentScroll = window.scrollY
+        setIsVisible(lastScroll > currentScroll || currentScroll < 400)
+        lastScroll = currentScroll
+    }
+
+    React.useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [lastScroll])
 
     return (
         <div className="App">

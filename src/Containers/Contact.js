@@ -150,7 +150,7 @@ const Contact = () => {
 	}
 
     return (
-        <SectionWrapper id="contact" offset={2500} minHeight="100vh" apply>
+        <SectionWrapper id="contact" offset={2500} minHeight="100vh" apply color='transparent'>
             <Title number="3">Contact</Title>
             <Layout>
                 <div>

@@ -1,14 +1,20 @@
 import React, { useEffect } from "react";
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 import KeywordsSphere from "./KeywordsSphere";
 import Title from "./Title";
-import SectionWrapper from '../Containers/SectionWrapper'
+import SectionWrapper from "../Containers/SectionWrapper";
 
-const curriculum = require('../../static-data/curriculum.json')
+import {
+    VerticalTimeline,
+    VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+
+const curriculum = require("../../static-data/curriculum.json");
 
 const Layout = styled.div`
     display: flex;
-    flexDirection: row;
+    flexdirection: row;
     background-color: transparent;
     box-shadow: 0px 0px 4px 4px rgba(150, 150, 150, 0.35);
     backdrop-filter: blur(6px);
@@ -20,7 +26,7 @@ const Layout = styled.div`
         flex-direction: column;
         align-items: center;
     }
-`
+`;
 
 const Item = styled.li`
     margin-bottom: 1em;
@@ -61,11 +67,11 @@ const Icons = styled.ul`
 
 const Icon = styled.li`
     display: flex;
-    alignItems: center;
+    alignitems: center;
     list-style: none;
     margin: 10px 5vw 10px 0px;
     :before {
-        content: '';
+        content: "";
         display: inline-block;
         position: relative;
         width: 20px;
@@ -75,10 +81,10 @@ const Icon = styled.li`
         background-repeat: no-repeat;
         background-position: center;
     }
-`
+`;
 
 const ItemTitle = styled.h1`
-    margin: 0; 
+    margin: 0;
     font-size: 1.8em;
     @media (max-width: 768px) {
         font-size: 1.2em;
@@ -87,19 +93,23 @@ const ItemTitle = styled.h1`
 `;
 
 const Divider = styled.div`
-    width: 100%; 
+    width: 100%;
     height: 0.5px;
-    background-color: orange; 
+    background-color: orange;
     margin-bottom: 5px;
     @media (max-width: 768px) {
         width: 95%;
     }
 `;
 
+const Date = styled.span`
+    font-weight: 700;
+}`;
+
 const Curriculum = () => {
     return (
-        <SectionWrapper id="curriculum" offset={140} minHeight="110vh" apply>
-            <Title number="1" color="#FFFFFF">Curriculum</Title>
+        <SectionWrapper id="curriculum" offset={130} minHeight="110vh" color="rgb(237, 238, 239)">
+            {/* <Title number="1" color="#FFFFFF">Curriculum</Title>
             <Layout>
                 <List>
                     {curriculum.map((item, index) => {
@@ -126,7 +136,32 @@ const Curriculum = () => {
                     })}
                 </List>
                 <KeywordsSphere/>
-            </Layout>
+            </Layout> */}
+            <Title number="1" color="orange">
+                Timeline
+            </Title>
+            <VerticalTimeline>
+                {curriculum.map((item, index) => {
+                    return (
+                        <VerticalTimelineElement
+                            key={index}
+                            contentStyle={{
+                                background: "transparent",
+                                color: "#000000",
+                            }}
+                            contentArrowStyle={{ borderRight: "none" }}
+                            date={<Date>{item.date}</Date>}
+                            icon={<div className={'logo ' + item.logo} />}
+                        >
+                            <h1 style={{ color: "orange" }}>{item.title}</h1>
+                            <h3>
+                                {item.university}, {item.location}
+                            </h3>
+                            <p>{item.description}</p>
+                        </VerticalTimelineElement>
+                    );
+                })}
+            </VerticalTimeline>
         </SectionWrapper>
     );
 };

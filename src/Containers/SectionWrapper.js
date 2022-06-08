@@ -7,10 +7,15 @@ const Section = styled.section`
     justify-content: center;
     position: relative;
     top: ${(props) => (props.invert ? "-50px" : "50px")};
-    color: #ffffff;
+    color: ${(props) => (props.color ? "white" : "black")};
     min-height: ${(props) => props.minHeight};
     opacity: 0;
     transition: all 0.6s ease-in-out;
+    background-color: ${(props) => props.color};
+    padding: ${props => props.blog ? '5vh 20%' : '5vh 10%'};
+    @media (max-width: 1024px) {
+        margin: 0 5%;
+    }
     @media (max-width: 768px) {
         top: ${(props) => (props.invert ? "-50px" : "200px")};
         min-height: ${(props) => props.minHeight};
@@ -48,6 +53,7 @@ const SectionWrapper = (props) => {
             invert={props.invert}
             minHeight={props.minHeight}
             id={props.id}
+            color={props.color}
         >
             {props.children}
         </Section>
