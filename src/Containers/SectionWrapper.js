@@ -14,12 +14,11 @@ const Section = styled.section`
     background-color: ${(props) => props.color};
     padding: ${props => props.blog ? '5vh 20%' : '5vh 10%'};
     @media (max-width: 1024px) {
-        margin: 0 5%;
+        padding: 0 5%;
     }
     @media (max-width: 768px) {
         top: ${(props) => (props.invert ? "-50px" : "200px")};
-        min-height: ${(props) => props.minHeight};
-        margin-top: 4vh;
+        min-height: 100vh;
     }
 `;
 const visible = {

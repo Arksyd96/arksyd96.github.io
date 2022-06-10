@@ -8,6 +8,7 @@ import Projects from "./Projects";
 import Contact from "./Contact";
 import ToggleButton from "../Components/ToggleButton";
 import CompaniesBand from "../Components/CompaniesBand";
+import Skills from "../Components/Skills";
 
 const Body = () => {
     const [enableParticles, setEnableParticles] = React.useState(true);
@@ -15,12 +16,12 @@ const Body = () => {
 
     return (
         <Layout>
-            {/* <SocialMediaNav /> */}
             <ParticlesNetwork enableParticles={enableParticles}/>
             <ToggleButton checked={enableParticles} onClick={() => setEnableParticles(!enableParticles)}/>
             <Home />
             <CompaniesBand />
             <Curriculum />
+            <Skills />
             <Projects />
             <Contact />
         </Layout>

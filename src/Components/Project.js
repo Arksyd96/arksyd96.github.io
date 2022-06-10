@@ -20,19 +20,20 @@ const ProjectWrapper = styled.div`
     }
 `;
 
-const Description = styled.p({
-    color: "orange",
-    opacity: "0.8",
-    padding: "5px 15px",
-    position: "relative",
-    margin: "0px 0px 10px 0px",
-    ":before": {
-        content: "'▹'",
-        position: "absolute",
-        left: "-2px",
-        color: "orange",
-    },
-});
+const Description = styled.p`
+    color: black;
+    font-weight: 400;
+    opacity: 0.8;
+    padding: 5px 15px;
+    position: relative;
+    margin: 0px 0px 10px 0px;
+    :before {
+        content: '▹';
+        position: absolute;
+        left: -2px;
+        color: orange;
+    }
+`
 
 const Title = styled.h1`
     display: flex;
@@ -40,6 +41,7 @@ const Title = styled.h1`
     font-size: 1.2em;
     margin: 0;
     min-height: 2.5em;
+    color: darkorange;
 `;
 
 const TagsWrapper = styled.div`
@@ -48,10 +50,11 @@ const TagsWrapper = styled.div`
     align-items: flex-end;
 `;
 const Tag = styled.span`
-    color: #ffffff;
+    color: orange;
     opacity: 0.6;
     font-size: 0.7em;
     margin-right: 5px;
+    font-weight: 700;
 `;
 const Footer = styled.div`
     display: flex;

@@ -140,7 +140,7 @@ const Curriculum = () => {
             <Title number="1" color="orange">
                 Timeline
             </Title>
-            <VerticalTimeline>
+            <VerticalTimeline animate={false}>
                 {curriculum.map((item, index) => {
                     return (
                         <VerticalTimelineElement

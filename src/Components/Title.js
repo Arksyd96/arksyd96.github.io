@@ -12,9 +12,9 @@ const Title = (props) => {
             content: '';
             display: inline-block;
             position: relative;
-            background: orange;
+            background: ${props.color};
             opacity: 0.6;
-            height: 1px;
+            height: 2px;
             width: 20vw;
             margin: 0px 20px;
             top: -10px;

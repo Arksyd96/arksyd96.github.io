@@ -1,24 +1,38 @@
 [
-    "HTML5/CSS",
-    "Javascript",
-    "TypeScript",
-    "Golang",
-    "Ada",
-    "Python",
-    "Java",
-    "C/C++",
-    "ReactJS",
-    "Java RMI",
-    "CORBA",
-    "TensorFlow",
-    "Keras",
-    "Sklearn",
-    "NLTK",
-    "Matplotlib",
-    "MongoDB",
-    "SQL",
-    "GraphQL",
-    "Arduino",
-    "FPGA",
-    "Raspberry Pi"
+    {
+        "skill": "Computer vision",
+        "description": "I have experienced many different with computer vision, including object detection, semantic segmentation or motion tracking. I have also achieved different projects on remote sensing, medical imaging or for autonomous vehicles (In particular at Stellantis).",
+        "link": "https://img.icons8.com/material-rounded/96/undefined/visible.png",
+        "size": "75%"
+    },
+    {
+        "skill": "Machine learning & Deep learning",
+        "description": "Machine learning is an integral part of my journey. I have worked in most sub-fields of machine learning, including supervised learning, clustering, data mining and, more specifically, deep learning, in which I have significant experience.",
+        "link": "https://img.icons8.com/ios-filled/100/undefined/artificial-intelligence.png",
+        "size": "75%"
+    },
+    {
+        "skill": "Natural language processing",
+        "description": "I have made several natural language processing applications, including the traditional process of text cleaning and preprocessing. I worked on semantic textual similarity, textual clustering, topic modeling, and neural machine translation.",
+        "link": "https://img.icons8.com/ios-filled/100/undefined/translation.png",
+        "size": "50%"
+    },
+    {
+        "skill": "Data analysis",
+        "description": "I worked for several months as a data analyst in a human resources department. I analysed massive data to derive observations necessary for decision making. I mainly used SAP Business object and Power BI.",
+        "link": "https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/100/undefined/external-data-analysis-digital-marketing-smashingstocks-glyph-smashing-stocks.png",
+        "size": "50%"
+    },
+    {
+        "skill": "Web development",
+        "description": "I also experienced some web development projects in my first university years, mainly using frameworks like React JS (which I used to develop this website) and Redux for data storing. Always useful for a computer scientist.",
+        "link": "https://img.icons8.com/external-smashingstocks-glyph-smashing-stocks/100/undefined/external-web-development-business-smashingstocks-glyph-smashing-stocks.png",
+        "size": "65%"
+    },
+    {
+        "skill": "Programming languages",
+        "description": "Indeed, my favourite language is python which I master perfectly; however, the list of languages I know extends to many more, including C/C++, Java, Golang, SQL, Ada, and most importantly, assembly language.",
+        "link": "https://img.icons8.com/ios-filled/250/undefined/python.png",
+        "size": "70%"
+    }
 ]

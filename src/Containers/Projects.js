@@ -49,8 +49,8 @@ const Projects = () => {
     }
 
     return (
-        <SectionWrapper id="projects" offset={1100} minHeight="200vh" apply color='transparent'>
-            <Title number="2" color="#FFFFFF">
+        <SectionWrapper id="projects" offset={1100} minHeight="100vh" apply color='rgb(237, 238, 239)'>
+            <Title number="2" color="orange">
                 Projects
             </Title>
             <ProjectsList>
@@ -63,6 +63,7 @@ const Projects = () => {
                 })}
             </ProjectsList>
             <Button 
+                orange
                 label={projectsCount === projectList.length ? 'View less' : 'View more'} 
                 onClick={handleProjectsNumber} 
                 style={{marginTop: '20px', alignSelf: 'center', minWidth: '200px'}}
