@@ -20,12 +20,6 @@ const Logo = styled.div`
     background-size: contain;
 `;
 
-const Divider = styled.div`
-    width: 100%;
-    height: 2px;
-    background-color: orange;
-`;
-
 const logos = [
     "u_paris-logo",
     "ubo_band-logo",
@@ -36,22 +30,13 @@ const logos = [
 
 const CompaniesBand = () => {
     return (
-        <React.Fragment>
-            <Divider />
-            <SectionWrapper
-                id="band"
-                offset={0}
-                minHeight="10vh"
-                color="white"
-            >
-                <Container>
-                    {logos.map((logo, index) => {
-                        return <Logo className={logo} key={index} />;
-                    })}
-                </Container>
-            </SectionWrapper>
-            <Divider />
-        </React.Fragment>
+        <SectionWrapper id="band" offset={0} minHeight="10vh" color="white">
+            <Container>
+                {logos.map((logo, index) => {
+                    return <Logo className={logo} key={index} />;
+                })}
+            </Container>
+        </SectionWrapper>
     );
 };
 

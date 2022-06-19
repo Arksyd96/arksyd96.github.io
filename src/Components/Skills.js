@@ -22,11 +22,14 @@ const Skill = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    margin-bottom: 1rem;
 `;
 
 const SkillTitle = styled.h3`
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
+    color: orange;
+    margin-bottom: 0.25rem;
 `;
 
 const SkillDescription = styled.p`
@@ -54,8 +57,8 @@ const Image = styled.img`
 
 const Skills = props => {
     return (
-        <SectionWrapper id="home" offset={500} minHeight="100vh" color="orange">
-            <Title number="3" color="#FFFFFF">
+        <SectionWrapper id="home" offset={500} minHeight="100vh" color="rgb(100, 100, 180)">
+            <Title number="3" color="orange">
                 Skills
             </Title>
             <SkillsList>

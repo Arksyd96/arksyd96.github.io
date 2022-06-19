@@ -82,7 +82,7 @@ const Project = (props) => {
                     borderRadius: "5px",
                     maxHeight: "28vh",
                     WebkitMaskImage:
-                        "linear-gradient(to bottom, white 65%, transparent)",
+                        "linear-gradient(to bottom, white 80%, black)",
                 }}
             />
             <div style={{ padding: "15px", display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '22vh' }}>
