@@ -50,7 +50,7 @@ const TagsWrapper = styled.div`
     align-items: flex-end;
 `;
 const Tag = styled.span`
-    color: orange;
+    color: darkorange;
     opacity: 0.6;
     font-size: 0.7em;
     margin-right: 5px;
@@ -94,7 +94,7 @@ const Project = (props) => {
                             <Tag key={index}>{tag}</Tag>
                         ))}
                     </TagsWrapper>
-                    <RedirectButton link={link} hovered={hovered}/>
+                    {/* <RedirectButton link={link} hovered={hovered}/> */}
                 </Footer>
             </div>
         </ProjectWrapper>

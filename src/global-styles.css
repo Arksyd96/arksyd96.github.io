@@ -72,6 +72,10 @@ body::-webkit-scrollbar-thumb
     background-repeat: no-repeat;
 }
 
+.redirect-container {
+    color: darkorange;
+}
+
 .hljs {
     white-space: pre-wrap;
 }

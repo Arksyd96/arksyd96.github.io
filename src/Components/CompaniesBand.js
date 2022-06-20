@@ -30,7 +30,7 @@ const logos = [
 
 const CompaniesBand = () => {
     return (
-        <SectionWrapper id="band" offset={0} minHeight="10vh" color="white">
+        <SectionWrapper id="band" offset={0} minHeight="10vh" color="white" companies>
             <Container>
                 {logos.map((logo, index) => {
                     return <Logo className={logo} key={index} />;

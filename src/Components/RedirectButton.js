@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-// import '../global-styles.css'
 
 const Button = styled.div`
     width: 1.5em;
