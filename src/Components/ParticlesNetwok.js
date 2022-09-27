@@ -8,7 +8,7 @@ const StyledCanvas = styled.canvas`
     z-index: -1;
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(to bottom,  black 20%, rgb(87, 111, 116));
+    background-image: linear-gradient(to bottom,  white 0%, rgb(37, 61, 68));
 `
 
 const ParticlesNetwork = (props) => {
@@ -21,7 +21,7 @@ const ParticlesNetwork = (props) => {
     const particles = [];
     let interactionParticle = null;
     const velocity = 30; // the higher the faster
-    const density = 8000; // the lower the more particles
+    const density = 16000; // the lower the more particles
     const maxConnectionDistance = 110; // max distance between particles to create a connection
     let initialized = false;
 
@@ -32,7 +32,7 @@ const ParticlesNetwork = (props) => {
             y: Math.random() * canvas.height,
             radius: depthRate * (3.5 - 1.5) + 1.5,
             opacity: depthRate,
-            color: `#aaa`,
+            color: `#3F3F3F`,
             velocity: {
                 x: (Math.random() - 0.5) * velocity,
                 y: (Math.random() - 0.5) * velocity,

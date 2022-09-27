@@ -36,7 +36,7 @@ const Body = () => {
             <Divider />
             <Skills />
             <Divider />
-            <Projects />
+            {/* <Projects /> */}
             <Contact />
         </Layout>
     );

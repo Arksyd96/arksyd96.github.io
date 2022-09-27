@@ -13,6 +13,7 @@ const Section = styled.section`
     transition: all 0.6s ease-in-out;
     background-color: ${(props) => props.color};
     padding: ${props => props.companies ? '0vh 10%' : (props.blog ? '5vh 20%' : '5vh 10%')};
+    color: black;
     @media (max-width: 1024px) {
         padding: 0 5%;
     }

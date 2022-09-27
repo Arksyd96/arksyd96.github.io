@@ -20,7 +20,7 @@ const Hey = Styled.span`
 `;
 
 const Description = Styled.p`
-    opacity: 0.9;
+    opacity: 1;
     width: 60%;
     @media (max-width: 768px) {
         width: 100%;
@@ -54,7 +54,7 @@ const Home = () => {
             <Hey>Hey, i'm</Hey>
             <Name>Kebaili Aghiles</Name>
             <Description>
-                I'm a machine learning and artificial intelligence engineer specialized 
+                I'm a machine learning and artificial intelligence researcher specialized 
                 in deep learning and computer vision models (and occasionally working 
                 on web development and designing). I'm currently working on an implementation of {' '}
                 <Link href="https://en.wikipedia.org/wiki/Power_iteration"
@@ -64,8 +64,9 @@ const Home = () => {
                 {" "} for eigenvalue decomposition.
             </Description>
             <br />
-            <Button 
+            <Button
                 newtab 
+                orange
                 /* link={base64EncodedPDF === undefined ? null : }  */
                 label="Resume"
             />

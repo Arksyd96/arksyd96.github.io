@@ -11,7 +11,7 @@ const ButtonStyled = styled.a`
     font-weight: 300;
     background: ${props => props.orange ? `orange` : `transparent`};
     color: ${props => props.orange ? `#000000` : `#FFFFFF`};
-    opacity: ${props => props.orange ? `0.5` : `1`};
+    opacity: ${props => props.orange ? `0.8` : `1`};
     text-align: center;
     box-sizing: border-box;
     transition: all 0.2s;
@@ -19,6 +19,7 @@ const ButtonStyled = styled.a`
     ${props => props.center && `align-self: center;`}
     :hover {
         color: #000000;
+        font-weight: bold;
         background-color: orange;
         border: 0.1em solid orange;
         opacity: 1;

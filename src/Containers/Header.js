@@ -15,8 +15,9 @@ const HeaderWrapper = styled.header`
     box-sizing: border-box;
     align-self: center;
     transition: all 0.5s ease;
-    backdrop-filter: ${(props) => (props.blog ? "none" : "blur(6px)")};
-    background-color: ${(props) => (props.blog ? "black" : "rgba(20, 20, 20, 0.5)")};
+    /* backdrop-filter: ${(props) => (props.blog ? "none" : "blur(6px)")}; */
+    /* background-color: ${(props) => (props.blog ? "black" : "rgba(20, 20, 20, 0.5)")}; */
+    background-color: black;
     box-shadow: rgba(50, 50, 93, 0.5) 0px 13px 27px -5px,
         rgba(80, 80, 80, 0.3) 0px 8px 16px -8px;
     z-index: 11;
