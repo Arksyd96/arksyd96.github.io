@@ -37,7 +37,6 @@ const Link = Styled.a`
         content: "";
         display: block;
         position: relative;
-        opavity: 0.5;
         height: 1px;
         width: 0%;
         background-color: orange;

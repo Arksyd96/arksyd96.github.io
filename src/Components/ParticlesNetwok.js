@@ -8,7 +8,7 @@ const StyledCanvas = styled.canvas`
     z-index: -1;
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(to bottom,  white 0%, rgb(37, 61, 68));
+    background-image: linear-gradient(to bottom,  rgb(200, 211, 218) 0%, rgb(37, 61, 68));
 `
 
 const ParticlesNetwork = (props) => {

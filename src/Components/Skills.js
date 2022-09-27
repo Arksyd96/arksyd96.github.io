@@ -23,6 +23,7 @@ const Skill = styled.div`
     align-items: center;
     justify-content: start;
     margin-bottom: 1rem;
+    text-align: center;
 `;
 
 const SkillTitle = styled.h3`
@@ -35,7 +36,6 @@ const SkillTitle = styled.h3`
 const SkillDescription = styled.p`
     font-size: 1.2rem;
     font-weight: 300;
-    text-align: center;
 `;
 
 const SkillLogo = styled.span`

@@ -17,15 +17,15 @@ const input_style = css`
     backdrop-filter: blur(6px);
     color: #ffffff;
     font-size: 1.2em;
-    box-shadow: 0px 0px 4px 4px rgba(150, 150, 150, 0.35);
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1);
     margin: 0.6em;
     transition: box-shadow 0.2s ease-in-out;
     ::placeholder {
-        color: rgba(200, 200, 200, 0.5);
+        color: rgba(30, 30, 30, 0.5);
     }
     :focus {
         outline: none;
-        box-shadow: 0px 0px 4px 4px rgba(150, 150, 150, 0.8);
+        box-shadow: 0px 0px 4px 4px rgba(50, 20, 0, 0.25);
     }
     @media (max-width: 600px) {
         width: 100%;
@@ -78,11 +78,11 @@ const GetInTouch = styled.h2`
 `;
 
 const Outro = styled.p`
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin-top: 1em;
     margin-bottom: 1em;
     text-align: justify;
-    color: #ffffff;
+    color: black;
     width: 90%;
     @media (max-width: 768px) {
         width: 100%;
@@ -123,7 +123,7 @@ const Link = styled.a`
 
 const Contact = () => {
 	let message = {
-		to: 'aghiles.kebaili@etu.u-paris.fr',
+		to: 'aghiles.kebaili.1998@gmail.com',
 		from: '',
 		subject: '',
 		body: ''
@@ -151,7 +151,7 @@ const Contact = () => {
 
     return (
         <SectionWrapper id="contact" offset={2500} minHeight="100vh" apply color='transparent'>
-            <Title number="3">Contact</Title>
+            <Title number="3" color="black">Contact</Title>
             <Layout>
                 <div>
                     <div>
@@ -167,9 +167,10 @@ const Contact = () => {
 						</Outro>
 					</div>
                     <ContactInfo>
-                        <Icon className="based-in-container">Pontoise, Île-de-France, France</Icon>
+                        <Icon className="based-in-container">Rouen
+                        , France</Icon>
                         <Icon className="phone-container">+33 605 58 15 71</Icon>
-                        <Icon className="email-container">aghiles.kebaili@etu.u-paris.fr</Icon>
+                        <Icon className="email-container">aghiles.kebaili.1998@gmail.com</Icon>
                     </ContactInfo>
                 </div>
                 <Form>

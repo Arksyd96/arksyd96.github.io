@@ -11,7 +11,7 @@ const Toggle = styled.input`
     width: 52px;
     border-radius: 16px;
     display: inline-block;
-    position: fixed;
+    position: absolute;
     top: 12vh;
     right: 15px;
     margin: 0;
