@@ -12,7 +12,7 @@ const Section = styled.section`
     opacity: 0;
     transition: all 0.6s ease-in-out;
     background-color: ${(props) => props.color};
-    padding: ${props => props.companies ? '0vh 10%' : (props.blog ? '5vh 20%' : '5vh 10%')};
+    padding: ${props => props.companies ? '0vh 10%' : (props.blog ? '5vh 20vw' : '5vh 10vw')};
     color: black;
     @media (max-width: 1024px) {
         padding: 0 5%;
@@ -55,6 +55,7 @@ const SectionWrapper = (props) => {
             id={props.id}
             color={props.color}
             companies={props.companies}
+            blog={props.blog}
         >
             {props.children}
         </Section>

@@ -31,7 +31,7 @@ const Post = (props) => {
         <div className="App">
             <Header blog isVisible={isVisible}/>
             <Layout blog>
-                <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh">
+                <SectionWrapper id="blog-homepage" offset={0} minHeight="90vh" blog>
                     <PostWrapper object={props.body} />
                 </SectionWrapper>
             </Layout>

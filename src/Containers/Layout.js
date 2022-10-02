@@ -8,7 +8,7 @@ const StyledLayout = Styled.main`
 
 const Layout = (props) => {
     return (
-        <StyledLayout blog={props.blog}>
+        <StyledLayout>
             {props.children}
         </StyledLayout>
     )       
