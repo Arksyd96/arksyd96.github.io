@@ -34,7 +34,12 @@ body, body>div {
 .article-styles p {
     font-size: 18px;
     line-height: 1.1;
+    text-align: justify;
     margin-bottom: 2rem;
+}
+
+.article-styles p {
+    font-size: 18px;
 }
 
 .blog-font {

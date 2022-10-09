@@ -108,11 +108,11 @@ const blog = ({ postsMetadata }) => {
                                     <Date>{postMeta.date}</Date>
                                     <Title>{postMeta.title}</Title>
                                     <Description>{postMeta.description}</Description>
-                                    <TagList>
+                                    {/* <TagList>
                                         {postMeta.tags.map((tag, index) => (
                                             <Tag key={index}>{tag}</Tag>
                                         ))}
-                                    </TagList>
+                                    </TagList> */}
                                 </PostCard>
                             </Link>
                         ))}

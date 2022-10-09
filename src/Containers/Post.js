@@ -19,6 +19,7 @@ const Layout = styled.div`
     width: 100%;
     padding: 4vh 4vw;
     margin: 10vh 0 10vw 0;
+    font-size: 18px;
     box-sizing: border-box;
     @media (max-width: 768px) {
         font-size: 0.4em;

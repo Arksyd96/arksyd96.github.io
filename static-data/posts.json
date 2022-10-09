@@ -7,167 +7,140 @@
         "id": "essential_for_ai_linear_algebra",
         "body": {
             "cells": [
-                {
-                    "cell_type": "markdown",
-                    "metadata": {},
-                    "source": [
-                        "# Linear algebra  \n",
-                        "### Vectors:\n",
-                        "#### 1. Definition\n",
-                        "Vectors can be interpreted differently depending on the context. Originally, in mathematics and physics, vectors were used to describe a direction and magnitude. Most common vectors are Euclidean vectors, which carries a point $A$ to a point $B$ in a straight line, noted $\\vec{AB}$. The magnitude of $\\vec{AB}$ is the distance between $A$ and $B$. The direction of $\\vec{AB}$ is the angle between straight line $\\vec{AB}$ and the unit vector $\\vec{O}$ (arrow that defines the abscissa, acts like an origin of the vector space).\n",
-                        "\n",
-                        "In computer science, a vector is a sequence of numbers defined as a one dimensional array. Unlike Euclidean vectors, vectors in computer science are not necessarily straight lines. For example, a vector can be a sequence of numbers that represent a point in a two dimensional space or more. Those numbers are called scalars. A scalar is just a floating point number, and can also be seen as a real number even in the Euclidean geometry.\n",
-                        "\n",
-                        "We count two types of vectors: row vectors and column vectors. Row vectors are defined as arrays of one line and multiple columns, while column vectors are defined as arrays of multiple lines and one column.\n",
-                        "\n",
-                        "$$v_{row} = \\begin{bmatrix}x_0 & x_1 & x_2\\end{bmatrix}, v_{column} = \\begin{bmatrix}x_0 \\\\ x_1 \\\\ x_2\\end{bmatrix} $$\n",
-                        "\n",
-                        "Note: A vector space is simply a set of vectors.\n",
-                        "\n",
-                        "#### 2. Arithmetic operations\n",
-                        "Suppose $V_A$ and $V_B$ are vectors. We can add them together, subtract them, multiply them, and divide them as long as the dimensions are the same.\n",
-                        "$$v_a + v_b = \\begin{bmatrix}x_0 + y_0 & x_1 + y_1 & ... & x_n + y_n\\end{bmatrix}$$\n",
-                        "Where $n$ is the number of elements in the vectors.  \n",
-                        "We can also multiply a vector by a scalar.\n",
-                        "$$v_a \\times c = \\begin{bmatrix}x_0 \\times c & x_1 \\times c & ... & x_n \\times c\\end{bmatrix}$$"
-                    ]
-                },
-                {
-                    "cell_type": "code",
-                    "execution_count": 13,
-                    "metadata": {},
-                    "outputs": [
-                        {
-                            "name": "stdout",
-                            "output_type": "stream",
-                            "text": [
-                                "[5 7 9] [-3 -3 -3] [ 4 10 18] [0.25 0.4  0.5 ]\n",
-                                "[4 5 6] [-2 -1  0] [3 6 9] [0.33333333 0.66666667 1.        ]\n"
-                            ]
-                        }
-                    ],
-                    "source": [
-                        "import numpy as np\n",
-                        "a, b = np.array([1, 2, 3]), np.array([4, 5, 6])\n",
-                        "print(a + b, a - b, a * b, a / b)\n",
-                        "\n",
-                        "c = 3\n",
-                        "print(a + c, a - c, a * c, a / c)"
-                    ]
-                },
-                {
-                    "cell_type": "markdown",
-                    "metadata": {},
-                    "source": [
-                        "#### 3. Inner product (dot product):\n",
-                        "The inner product of two vectors $V_A$ and $V_B$ is the sum of the products of the corresponding elements:\n",
-                        "$$\\langle v_a, v_b \\rangle = \\sum_{i=0}^{n} x_i \\times y_i$$\n",
-                        "Note: $\\langle v_a, v_b \\rangle$ can also be written as $v_a \\cdot v_b$."
-                    ]
-                },
-                {
-                    "cell_type": "code",
-                    "execution_count": 20,
-                    "metadata": {},
-                    "outputs": [
-                        {
-                            "name": "stdout",
-                            "output_type": "stream",
-                            "text": ["[1 2 3] [4 5 6] inner product = 32\n"]
-                        }
-                    ],
-                    "source": [
-                        "print(a, b, 'inner product = {}'.format(np.dot(a, b)))"
-                    ]
-                },
-                {
-                    "cell_type": "markdown",
-                    "metadata": {},
-                    "source": [
-                        "#### 4. Norms:\n",
-                        "The norm of a vector $v_a$ is a function that outputs a non-negative real number $norm: X \\rightarrow \\mathbb{R}$ where $X$ is the vector space. This real number can have different meanings depending on the context. For example, the Euclidean norm or 2-norm can be used to measure the distance from the origin.\n",
-                        "$$|v_a|_2 = \\sqrt{\\sum_{i=0}^{n} x_i^2}$$\n",
-                        "The absolute value of a vector is a 1-norm and is represents the magnitude of the vector.\n",
-                        "\n",
-                        "p-norm: normalization comes in a more general formula noted as $\\mathbf{l}_p$-norm. where $p > 0$.\n",
-                        "- $p = 1$: the 1-norm is the absolute value of the vector, also called Taxicab norm or Manhattan norm.\n",
-                        "$$|v_a|_1 = \\sum_{i=0}^{n} |x_i|$$\n",
-                        "- $p = 2$: the 2-norm is the Euclidean norm.\n",
-                        "$$|v_a|_2 = \\sqrt{\\sum_{i=0}^{n} x_i^2}$$\n",
-                        "- $p > 2$: the p-norm is the p-th root of the sum of the p-th powers of the elements of the vector.\n",
-                        "$$|v_a|_p = \\left({\\sum_{i=0}^{n} |x_i|^p}\\right)^{\\frac{1}{p}}$$\n",
-                        "\n",
-                        "#### 5. Linear combination: \n",
-                        "The linear combination of a set $V$ of vectors is the sum of all the vectors in $V$ multiplied by their corresponding scalar coefficients.\n",
-                        "$$v = a_1v_1 + a_2v_2 + ... + a_nv_n$$ \n",
-                        "e. g. $(a_1, a_2, a_3) = a_1(1, 0, 0) + a_2(0, 1, 0) + a_3(0, 0, 1)$\n",
-                        "\n",
-                        "#### 6. *Linear indenpendence:*\n",
-                        "Two vectors $v_a$ and $v_b$ are said to be linearly dependent if there is a combination of non-zero scalars such a:\n",
-                        "$$a_1v_1 + a_2v_2 + ... + a_nv_n = 0$$\n",
-                        "If the only solution to this linear combination is zero $(a_1, a_2, ..., a_n) = (0, 0, ..., 0)$, then the vectors are linearly independent. In other words, if we can express the vectors as two different linear combinations, then the vectors are linearly dependent:  \n",
-                        "(1) $a_1v_1 + a_2v_2 + ... + a_nv_n = 0$  \n",
-                        "(2) $b_1v_1 + b_2v_2 + ... + b_nv_n = 0$  \n",
-                        "if we put $(1) - (2) = 0$ and $c_i := a_i - b_i$ then we have:  \n",
-                        "$\\Longrightarrow c_1v_1 + c_2v_2 + ... + c_nv_n = 0$; if the only solution to this linear combination is $c = [0, 0, ..., 0]$ then the vectors are linearly independent, otherwise they are dependent.\n",
-                        "\n",
-                        "#### 7. Orthogonal and orthonormal vectors\n",
-                        "A vector $v_a$ is said to be orthogonal to a vector $v_b$ if the inner product of $v_a$ and $v_b$ is zero. From a geometric point of view, we say that 2 vectors are orthogonal if they are perpendicular to each other.\n",
-                        "$$v_a, v_b \\in V \\Longrightarrow \\langle v_a, v_b \\rangle = 0$$\n",
-                        "\n",
-                        "We say that a set of vectors ${v_1, v_2, ..., v_n}$ are mutually orthogonal if every pair of vectors is orthogonal.\n",
-                        "$$\\forall v_i, v_j \\in V, \\langle v_i, v_j \\rangle = 0; i \\neq j$$\n",
-                        "\n",
-                        "A set of vectors $V$ is said to be orthonormal if it is mutually orthogonal and every vector is a unit vector. A unit vector (or normal vector) is a vector that has a magnitude (or norm) of 1, so for example:\n",
-                        "\n",
-                        "$$\\text{we put as vector set} \\;\\;\\; V = \\left\\{\\begin{bmatrix}1 \\\\ 0 \\\\ -1\\end{bmatrix}, \\begin{bmatrix}1 \\\\ \\sqrt{2} \\\\ 1\\end{bmatrix}, \\begin{bmatrix}1 \\\\ -\\sqrt{2} \\\\ 1\\end{bmatrix}\\right\\}$$\n",
-                        "\n",
-                        "Those vectors are orthogonal but not orthonormal, $\\forall v_i, v_j \\in V | i \\neq j \\Rightarrow \\langle v_i, v_j \\rangle = 0$.  \n",
-                        "$$\\text{we put} \\;\\;\\; u_i = \\frac{v_i}{|v_i|}; \\forall v_i \\in V$$\n",
-                        "The set of vectors $u_i$ is orthogonal and orthonormal, its also called the orthonormal basis of $V$.\n",
-                        "\n",
-                        "#### 8. Cosine similarity:\n",
-                        "The cosine similarity between two vectors $v_a$ and $v_b$ is the cosine of the angle between the vectors. This formula can be derived from the inner product (dot product) of two vectors in an Euclidean space. The original inner product formula is:\n",
-                        "$$\\langle \\vec{u}, \\vec{v} \\rangle = \\|\\vec{u}\\| \\times \\|\\vec{v}\\| \\times cos(\\hat{\\vec{u}, \\vec{v}})$$\n",
-                        "If we put $\\theta$ as the angle between the vectors, then the cosine similarity formula is:\n",
-                        "$$\\cos \\theta = \\frac{\\langle v_a, v_b \\rangle}{|v_a| \\times |v_b|}$$\n",
-                        "The value of the cosine similarity is between -1 and 1. -1 if the two vectors are in different directions, 0 if they are orthogonal, and 1 if they are colinear and therefore, a positive scalar $k$ exists such as $\\vec{u} = k\\vec{v}$. Cosine similarity is used as a metric to measure the similarity between two vectors, the closer the value is to 1, the more similar the vectors are.\n",
-                        "\n",
-                        "### Matrices:"
-                    ]
-                },
-                {
-                    "cell_type": "markdown",
-                    "metadata": {},
-                    "source": []
-                }
+             {
+              "cell_type": "markdown",
+              "metadata": {},
+              "source": [
+               "# Linear algebra\n",
+               "\n",
+               "## Groups\n",
+               "A group is a set of elements with a binary operation that satisfies the following properties:  \n",
+               "Let $e \\in G$ and $*: G \\times G \\rightarrow G$ be a binary operation, then :  \n",
+               "1. $e$ is an identity element, i.e. $e * x = x * e = x$ for all $x \\in G$ (neutral element).  \n",
+               "2. $(x * y) * z = x * (y * z)$ for all $x, y, z \\in G$ (associativity).  \n",
+               "3. $\\forall x, \\exists x^{-1} \\in G$ such that $x * x^{-1} = x^{-1} * x = e$ (symmetry).  \n",
+               "\n",
+               "A group is noted $G = (G, *)$ or $G = (G, *, e)$.\n",
+               "\n",
+               "**Examples of groups:**   \n",
+               "$\\mathbb{Z}$ with addition is a group, and 0 is the neutral element. $x^{-1} = -x$ is the inverse of $x$.  \n",
+               "\n",
+               "Let $\\mathbb{Z}, n \\geq 2$ with the following equivalence relation :  \n",
+               "$x \\sim y$ if and only if $x - y \\in \\mathbb{Z}$ (multiples of n).\n",
+               "Then $\\mathbb{Z} / n \\mathbb{Z}$ is a group with the binary operation $x * y = x + y \\text{ mod } n$. \n",
+               " \n",
+               "$\\bar{x} = \\{y \\in \\mathbb{Z} / x \\sim y\\}$ (equivalence class of $x$, also noted $[x]_\\sim$) and the set of all equivalence classes is noted $\\mathbb{Z} / n \\mathbb{Z}$ (quotient set) is also a group. Neutral element is $\\bar{0}$, and $\\bar{x} + \\bar{y} = \\overline{x + y}$ is the binary operation.  \n",
+               "$\\mathbb{Z} / n \\mathbb{Z}$ is also said to be a cyclic group.  \n",
+               "\n",
+               "$S_n$ (permutation group of $n$ elements) is a group with the binary operation $x * y = xy$. Neutral element is the identity permutation. $S_n$ is said to be a symmetric group.  \n",
+               "Lets put a set of bijections from $\\{1, 2, ..., n\\}$ to $\\{1, 2, ..., n\\}$, with $\\sigma \\in S_n$ :  \n",
+               "\n",
+               "$1 \\Rightarrow n \\text{ choices}$  \n",
+               "$2 \\Rightarrow n - 1 \\text{ choices}$   \n",
+               "$.$  \n",
+               "$.$  \n",
+               "$n \\Rightarrow 1 \\text{ choice}$   \n",
+               "\n",
+               "$n! \\text{ elements in total}$  \n",
+               "\n",
+               "$Id$ is the identity permutation : $Id(1) = 1, Id(2) = 2, ..., Id(n) = n$.  \n",
+               "Operator of composition is defined as $\\sigma_1 * \\sigma_2 = \\sigma_1 \\sigma_2$, known as the product of permutations.  \n",
+               "k-cycles permutation of (1, 2, ..., n) is a permutation that swaps k consecutive elements.  \n",
+               "$(i_1, i_2, ..., i_k) : i_1 \\rightarrow i_2 \\rightarrow i_3 \\rightarrow ... \\rightarrow i_k \\rightarrow i_1$\n",
+               "\n",
+               "## Rings\n",
+               "A ring is a set of elements with two binary operations that satisfies the following properties:  \n",
+               "Let A be a set, and $+: A \\times A \\rightarrow A$ and $\\times: A \\times A \\rightarrow A$ be two binary operations, then :  \n",
+               "1. $(A, +, 0)$ is an abelian group, where 0 is the neutral element. An abelian group is a commutative group ($x + y = y + x$).\n",
+               "2. $(x \\times y) \\times z = x \\times (y \\times z)$ for all $x, y \\in A$ (associativity).    \n",
+               "3. $x \\times y = y \\times x$ for all $x, y \\in A$ (commutativity).  \n",
+               "4. $x \\times (y + z) = (x \\times y) + (x \\times z)$ for all $x, y, z \\in A$ (distributivity).\n",
+               "5. $\\exists 1 \\in A$ such that $x \\times 1 = 1 \\times x = x$ for all $x \\in A$ (neutral element of $\\times$).\n",
+               "5. $\\exists 0 \\in A$ such that $x + 0 = 0 + x = x$ for all $x \\in A$ (neutral element of +).  \n",
+               "\n",
+               "A ring is noted $A = (A, +, \\times)$ or $A = (A, +, \\times, 0, 1)$.  \n",
+               "\n",
+               "**Examples of rings:**\n",
+               "$\\mathbb{Z}$ with addition and multiplication is a ring $(\\mathbb{Z}, +, \\times, 0, 1)$.\n",
+               "\n",
+               "## Fields\n",
+               "A field is a ring with the following properties:\n",
+               "1. $\\forall x \\in K \\text{ and } x \\neq 0, \\exists x^{-1} \\in K$ such that $x \\times x^{-1} = x^{-1} \\times x = 1$ (multiplicative inverse).\n",
+               "\n",
+               "A field is noted $K = (K, +, \\times, 0, 1)$.\n",
+               "\n",
+               "**Examples of fields:**  \n",
+               "$\\mathbb{Q}$ with addition and multiplication is a field $(\\mathbb{Q}, +, \\times, 0, 1)$.  \n",
+               "$\\mathbb{R}$ with addition and multiplication is a field $(\\mathbb{R}, +, \\times, 0, 1)$.  \n",
+               "$\\mathbb{C}$ with addition and multiplication is a field $(\\mathbb{C}, +, \\times, 0, 1)$.\n",
+               "\n",
+               "## Vector spaces\n",
+               "Let $K$ be a field. A vector space over $K$ is called $K$-vector space, and is a set of elements $E$ with two binary operations noted $(E, +, .)$ where $E$ has at least one element 0, + is an internal composition law from $E \\times E \\rightarrow E$ and $.$ is an external composition law from $K \\times E \\rightarrow E$ such that :\n",
+               "1. $(E, +)$ is an abelian group, where 0 is the neutral element.\n",
+               "2. $\\forall x \\in E, 1.x = x$. \n",
+               "3. $\\forall \\lambda, \\mu \\in K \\text{ and } x \\in E, \\lambda . (\\mu . x) = (\\lambda \\mu) . x$.\n",
+               "4. $\\forall \\lambda, \\mu \\in K \\text{ and } x, y \\in E, (\\lambda + \\mu) . x = \\lambda . x + \\mu . x$.\n",
+               "5. $\\forall \\lambda \\in K \\text{ and } x, y \\in E, \\lambda.(x + y)  = \\lambda.x  + \\lambda.y$.  \n",
+               "\n",
+               "Elements of $E$ are called vectors and those of $K$ are called scalars.  \n",
+               "**Note**: Notation $\\lambda . x$ is equivalent to $x \\times \\lambda$.  \n",
+               "\n",
+               "If $K$ is a $K$-vector space with dimension $n$, then :  \n",
+               "$K^n = \\{(x_1, x_2, ..., x_n) / x_1, x_2, ..., x_n \\in K \\}$  \n",
+               "1. $(x_1, x_2, ..., x_n) + (y_1, y_2, ..., y_n) = (x_1 + y_1, x_2 + y_2, ..., x_n + y_n)$ \n",
+               "2. $\\lambda . (x_1, x_2, ..., x_n) = (\\lambda . x_1, \\lambda . x_2, ..., \\lambda . x_n)$\n",
+               "\n",
+               "**Examples of vector spaces:**  \n",
+               "$\\mathbb{R}$ is a $\\mathbb{Q}$-vector space over $\\mathbb{Q}$.  \n",
+               "$\\mathbb{C}$ is a $\\mathbb{R}$-vector space over $\\mathbb{R}$.\n",
+               "\n",
+               "## Spanning sets, linear independence and basis\n",
+               "Let $(E, +, .)$ be a $K$-vector space:  \n",
+               "1. A set $(g_i)_{i\\in I}$ of elements of $E$ is called a spanning set of $E$ if $\\forall x \\in E, \\exists  J \\subset I$ dependant of $x$ and a finite set of scalars $(\\lambda_i)_{i \\in J}$ such that :  \n",
+               "$$x = \\sum_{i \\in J} \\lambda_i . g_i$$\n",
+               "2. A set $(l_i)_{i\\in I}$ of elements of $E$ is called linearly independent set if $\\forall J \\subset I, \\exists \\lambda_i \\in K$ such that :\n",
+               "$$\\sum_{i \\in J} \\lambda_i . l_i = 0 \\text{ implies } \\lambda_i = 0 \\text{ for all } i \\in J$$\n",
+               "3. A set $(b_i)_{i\\in I}$ of elements of $E$ is called a basis of $E$ if it is a spanning set and a linearly independent set.  \n",
+               "\n",
+               "Formulas of type $\\sum_{i \\in J} \\lambda_i . g_i$ are called linear combinations.  \n",
+               "\n",
+               "**Note**: There is always a spanning set of $E$. e.g. $E$ is a spanning set of $E$. But there is not always a basis of $E$.  \n",
+               "\n",
+               "**Example of spanning and linear indenpendent sets:**  \n",
+               "Let $K$ be $K$-vector space with dimension $n$. The set $\\{(1, 0, ..., 0), (0, 1, ..., 0), ..., (0, 0, ..., 1)\\}$ is linearly independent and a spanning set of $K^n$ :  \n",
+               "1. $\\lambda_1 . (1, 0, ..., 0) + \\lambda_2 . (0, 1, ..., 0) + ... + \\lambda_n . (0, 0, ..., 1) = (0, 0, ..., 0)$ (Linear independence).\n",
+               "2. $(x_1, x_2, ..., x_n) = x_1 . (1, 0, ..., 0) + x_2 . (0, 1, ..., 0) + ... + x_n . (0, 0, ..., 1)$ (Spanning set).\n",
+               "\n",
+               "## Finite dimensional vector spaces\n",
+               "Let $K$ be a field and $E$ a $K$-vector space. $E$ is called finite dimensional if there exists a finite spanning set with $(b_i)_{i\\in I}$ elements of $E$.  \n",
+               "\n",
+               "**1. Proposition**: Every finite dimensional $K$-vector space has a basis.  \n",
+               "**Proof**:  \n",
+               "The case where $E = \\{0\\}$, we have a basis $\\{0\\}$, so we can assume that $E \\neq \\{0\\}$.  \n",
+               "Let $\\mathcal{G}$ be a finite spanning set of $E$ ($\\mathcal{G}$ stands for generator). Consider $\\mathcal{L} = \\{l_1, ..., l_n\\}$ included in $\\mathcal{G}$ such that $\\mathcal{L}$ is maximal ()."
+              ]
+             }
             ],
             "metadata": {
-                "interpreter": {
-                    "hash": "80112827eb6ff0e0e99643afeb06c6ff1a42a8eff6a0c89f515b676ff99d7bc7"
-                },
-                "kernelspec": {
-                    "display_name": "Python 3.7.13 ('work')",
-                    "language": "python",
-                    "name": "python3"
-                },
-                "language_info": {
-                    "codemirror_mode": {
-                        "name": "ipython",
-                        "version": 3
-                    },
-                    "file_extension": ".py",
-                    "mimetype": "text/x-python",
-                    "name": "python",
-                    "nbconvert_exporter": "python",
-                    "pygments_lexer": "ipython3",
-                    "version": "3.7.13"
-                },
-                "orig_nbformat": 4
+             "kernelspec": {
+              "display_name": "Python 3.9.12 ('base')",
+              "language": "python",
+              "name": "python3"
+             },
+             "language_info": {
+              "name": "python",
+              "version": "3.9.12"
+             },
+             "orig_nbformat": 4,
+             "vscode": {
+              "interpreter": {
+               "hash": "cbc2653bf455cc0433f1e6d93cfb342e9b3a6c9b77ec65bb59a83ee33f8cb90b"
+              }
+             }
             },
             "nbformat": 4,
             "nbformat_minor": 2
-        }
+           }
     },
     {
         "title": "The essential for AI: Probability (French)",
@@ -709,8 +682,8 @@
         }
     },
     {
-        "title": "Demonstration of normal equation formula for regression",
-        "description": "A detailed step-by-step demonstration of the normal equation formula for regression.",
+        "title": "Proof of normal equation formula for regression",
+        "description": "A detailed step-by-step proof of the normal equation formula for regression.",
         "tags": ["Mathematics", "Regression"],
         "date": "September 30, 2021",
         "id": "normal_equation_demonstration",
