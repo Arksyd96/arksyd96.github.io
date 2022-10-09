@@ -17,7 +17,7 @@ module.exports = {
         if(!isServer) {
             config.resolve.fallback = {
                 fs: "empty",
-                path: "empty",
+                path: false,
             }
         }
         // Perform customizations to webpack config
