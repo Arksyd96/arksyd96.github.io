@@ -18,7 +18,7 @@ const Toggle = styled.input`
     border: 2px solid #474755;
     background: white;
     transition: all 0.2s ease;
-    z-index: -1;
+    z-index: 10;
     :after {
         content: "";
         position: absolute;

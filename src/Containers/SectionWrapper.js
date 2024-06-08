@@ -19,7 +19,6 @@ const Section = styled.section`
     }
     @media (max-width: 768px) {
         top: ${(props) => (props.invert ? "-50px" : "200px")};
-        min-height: ${(props) => props.minHeight};
     }
 `;
 const visible = {

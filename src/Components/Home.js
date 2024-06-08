@@ -13,7 +13,8 @@ const Name = Styled.h1`
 `;
 
 const Hey = Styled.span`
-    font-size: 1.5em;
+    font-size: 2em;
+    font-weight: 600;
     @media (max-width: 768px) {
         font-size: 1.2em;
     }
@@ -47,6 +48,14 @@ const Link = Styled.a`
     }
 `;
 
+const ButtonContainer = Styled.div`
+    display: flex;
+    flex-direction: row;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+`;
+
 const Home = () => {
     return (
         <SectionWrapper id="home" offset={0} minHeight="90vh" invert apply color="transparent">
@@ -55,18 +64,35 @@ const Home = () => {
             <Description>
                 I'm a machine learning and artificial intelligence research scientist specialized in deep learning and computer vision models, currently pursuing a Ph.D. in medical imaging at{' '}
                 <Link href="https://www.becquerel.fr" target="_blank">Henri Becquerel Cancer Center</Link> 
-                and the University of Rouen-Normandy, France.<br />
+                {' '}and the University of Rouen-Normandy, France.<br />
                 
-                I'm mainly interested in generative models, especially diffusion models for augmenting multimodal MRI data. You can check out my publications{' '}
-                <Link href="https://scholar.google.fr/citations?user=Sp3Q6LQAAAAJ&hl=fr" target="_blank">here</Link>.
+                I'm mainly interested in generative models, especially diffusion models for augmenting multimodal MRI data. Check my latest publications accepted at{' '}
+                <Link href="https://hal.science/hal-04521092/document" target="_blank">IEEE International Symposium on Biomedical Imaging</Link>.
             </Description>
             <br />
-            <Button
-                newtab 
-                orange
-                link={'https://www.linkedin.com/in/aghiles-kebaili/'} 
-                label="LinkedIn"
-            />
+            <ButtonContainer>
+                <Button
+                    newtab 
+                    orange
+                    marginRight
+                    link={'https://www.linkedin.com/in/aghiles-kebaili/'} 
+                    label="LinkedIn"
+                />
+                <Button
+                    newtab 
+                    orange
+                    marginRight
+                    link={'https://github.com/Arksyd96'} 
+                    label="Github"
+                />
+                <Button
+                    newtab 
+                    orange
+                    link={'https://scholar.google.com/citations?user=Sp3Q6LQAAAAJ&hl=fr'} 
+                    label="Google Scholar"
+                />
+            </ButtonContainer>
+                
         </SectionWrapper>
     );
 };
