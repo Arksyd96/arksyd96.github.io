@@ -1,9 +1,17 @@
 [
     {
+        "title": "Ph.D. in computer vision applied to medical imaging",
+        "university": "University of Rouen-Normandy",
+        "location": "Rouen, France",
+        "date": "Oct, 2022 - current",
+        "description": "I am currently pursuing a Ph.D. in medical imaging at the University of Rouen-Normandy, France, in collaboration with the Henri Becquerel Cancer Center. My primary research interests lie in generative models, particularly diffusion models for enhancing multimodal MRI data generation. My ultimate goal is the prediction of tumor regions during cancer recurrence.",
+        "logo": "chb-logo"
+    },
+    {
         "title": "Data scientist",
         "university": "Stellantis",
         "location": "Paris",
-        "date": "2021 - current",
+        "date": "2021 - 2022",
         "description": "Analysis and exploration of massive HR data to derive valuable observations for decision making. I worked on the implementation of intelligent algorithms allowing the automation of some manual tasks, e.g. Semantic textual similarity using Transformers (BERT), textual clustering using KMeans & LDA, all alongside other tasks like data cleaning & data visualization.",
         "logo": "stellantis-logo"
     },
@@ -22,13 +30,5 @@
         "date": "2020 - 2021",
         "description": "I explored different fields of artificial intelligence through the prism of interaction: knowledge representation and reasoning, combinatorial optimisation, robotics. etc. All alongside the study of hardware architectures such as FPGAs and SIMD acceleration.",
         "logo": "ubo-logo"
-    },
-    {
-        "title": "Computer science bachelor's degree",
-        "university": "University of science and technology of Algiers",
-        "location": "Algiers, Algeria",
-        "date": "2016 - 2019",
-        "description": "I’ve been getting the main tools of modern computer science, such as data structures, software engineering and databases, which allowed me to develop good coding skills with the required design patterns. Thesis: sentiment analysis for accident prediction through social network data.",
-        "logo": "usthb-logo"
     }
 ]

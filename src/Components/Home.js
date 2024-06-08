@@ -53,21 +53,19 @@ const Home = () => {
             <Hey>Hey, i'm</Hey>
             <Name>Kebaili Aghiles</Name>
             <Description>
-                I'm a machine learning and artificial intelligence researcher specialized 
-                in deep learning and computer vision models (and occasionally working 
-                on web development and designing). I'm currently working on an implementation of {' '}
-                <Link href="https://en.wikipedia.org/wiki/Power_iteration"
-                    target="_blank">
-                    Power iteration algorithm
-                </Link>
-                {" "} for eigenvalue decomposition.
+                I'm a machine learning and artificial intelligence research scientist specialized in deep learning and computer vision models, currently pursuing a Ph.D. in medical imaging at{' '}
+                <Link href="https://www.becquerel.fr" target="_blank">Henri Becquerel Cancer Center</Link> 
+                and the University of Rouen-Normandy, France.<br />
+                
+                I'm mainly interested in generative models, especially diffusion models for augmenting multimodal MRI data. You can check out my publications{' '}
+                <Link href="https://scholar.google.fr/citations?user=Sp3Q6LQAAAAJ&hl=fr" target="_blank">here</Link>.
             </Description>
             <br />
             <Button
                 newtab 
                 orange
-                /* link={base64EncodedPDF === undefined ? null : }  */
-                label="Resume"
+                link={'https://www.linkedin.com/in/aghiles-kebaili/'} 
+                label="LinkedIn"
             />
         </SectionWrapper>
     );

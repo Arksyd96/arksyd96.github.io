@@ -3,7 +3,7 @@
     "author": "riles",
     "version": "1.0.2",
     "scripts": {
-        "dev": "next",
+        "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
         "build": "next build",
         "start": "next start",
         "export": "next export",
@@ -19,6 +19,7 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
         "@fortawesome/react-fontawesome": "^0.1.15",
         "browserslist": "^4.20.4",
+        "cross-env": "^7.0.3",
         "fs": "^0.0.1-security",
         "highlight.js": "^11.5.1",
         "html-react-parser": "^1.4.0",

@@ -128,6 +128,14 @@ body::-webkit-scrollbar-thumb
     background-image: url(../assets/u_paris.jpg);
 }
 
+.chb-logo {
+    background-image: url(../assets/henri_becquerel.png);
+}
+
+.chb_band-logo {
+    background-image: url(../assets/chb_band.svg);
+}
+
 .ubo-logo {
     background-image: url(../assets/ubo.jpg);
 }

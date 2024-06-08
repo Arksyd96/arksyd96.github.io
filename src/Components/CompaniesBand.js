@@ -23,17 +23,17 @@ const Logo = styled.div`
 const logos = [
     "u_paris-logo",
     "ubo_band-logo",
-    "usthb-logo",
+    "chb_band-logo",
     "stellantis_band-logo",
     "litis-logo",
 ];
 
 const CompaniesBand = () => {
     return (
-        <SectionWrapper id="band" offset={0} minHeight="10vh" color="white" companies>
+        <SectionWrapper id="band" offset={0} minHeight="8vh" color="white" companies>
             <Container>
                 {logos.map((logo, index) => {
-                    return <Logo className={logo} key={index} />;
+                    return <Logo className={logo} key={index} style={{margin: '0px 30px 0px 30px'}}/>;
                 })}
             </Container>
         </SectionWrapper>

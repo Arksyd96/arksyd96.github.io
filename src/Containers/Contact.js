@@ -157,20 +157,20 @@ const Contact = () => {
                     <div>
 						<GetInTouch>Get in touch</GetInTouch>
 						<Outro>
-							I'm currently in work-study at {' '}
+                            I'm currently working full-time at the{'  '}
                             <Link href="https://www.stellantis.com/fr"
                                 target="_blank">
-                                Stellantis
-                            </Link> but i'll be open to new proposals.
-							Feel free to send me a message, my inbox is always open 
-							whether for a question or just to say hi!
+                                Henri Becquerel Cancer Center
+                            </Link> , but I'm open to any proposals. 
+                            Feel free to send me a message; my inbox is always open, 
+                            whether you have a question or just want to say hi!
 						</Outro>
 					</div>
                     <ContactInfo>
                         <Icon className="based-in-container">Rouen
                         , France</Icon>
-                        <Icon className="phone-container">+33 605 58 15 71</Icon>
-                        <Icon className="email-container">aghiles.kebaili.1998@gmail.com</Icon>
+                        {/* <Icon className="phone-container">+33 605 58 15 71</Icon> */}
+                        <Icon className="email-container">aghiles.kebaili@univ-rouen.fr</Icon>
                     </ContactInfo>
                 </div>
                 <Form>
