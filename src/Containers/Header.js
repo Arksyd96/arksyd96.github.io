@@ -159,8 +159,8 @@ const Header = (props) => {
                             <Anchor number="1" href="#curriculum">
                                 Curriculum
                             </Anchor>
-                            <Anchor number="2" href="#projects">
-                                Projects
+                            <Anchor number="2" href="#skills">
+                                Skills
                             </Anchor>
                             <Anchor number="3" href="#contact">
                                 Contact

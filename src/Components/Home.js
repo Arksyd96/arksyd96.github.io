@@ -66,8 +66,8 @@ const Home = () => {
                 <Link href="https://www.becquerel.fr" target="_blank">Henri Becquerel Cancer Center</Link> 
                 {' '}and the University of Rouen-Normandy, France.<br />
                 
-                I'm mainly interested in generative models, especially diffusion models for augmenting multimodal MRI data. Check my latest publications accepted at{' '}
-                <Link href="https://hal.science/hal-04521092/document" target="_blank">IEEE International Symposium on Biomedical Imaging</Link>.
+                I'm mainly interested in generative models, especially diffusion models for augmenting multimodal MRI data. Check my latest publication accepted at{' '}
+                <Link href="https://arxiv.org/pdf/2501.12840" target="_blank">IEEE International Symposium on Biomedical Imaging</Link>.
             </Description>
             <br />
             <ButtonContainer>
@@ -92,7 +92,6 @@ const Home = () => {
                     label="Google Scholar"
                 />
             </ButtonContainer>
-                
         </SectionWrapper>
     );
 };

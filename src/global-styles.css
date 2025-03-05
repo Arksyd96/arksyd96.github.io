@@ -148,6 +148,10 @@ body::-webkit-scrollbar-thumb
     background-image: url(../assets/usthb.jpg);
 }
 
+.aims-logo {
+    background-image: url(../assets/aims_logo.jpg);
+}
+
 .stellantis-logo {
     background-image: url(../assets/stellantis.png);
 }

@@ -57,7 +57,7 @@ const Image = styled.img`
 
 const Skills = props => {
     return (
-        <SectionWrapper id="home" offset={500} minHeight="100vh" color="rgb(100, 100, 180)">
+        <SectionWrapper id="skills" offset={500} minHeight="100vh" color="rgb(100, 100, 180)">
             <Title number="3" color="orange">
                 Skills
             </Title>

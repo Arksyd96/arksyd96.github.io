@@ -27,11 +27,12 @@ const Logo = styled.div`
 `;
 
 const logos = [
-    "u_paris-logo",
     "ubo_band-logo",
-    "chb_band-logo",
+    "u_paris-logo",
     "stellantis_band-logo",
-    "litis-logo",
+    "chb_band-logo",
+    "aims-logo",
+    "litis-logo"
 ];
 
 const CompaniesBand = () => {
