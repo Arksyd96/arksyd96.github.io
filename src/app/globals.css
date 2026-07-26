@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  scroll-behavior: smooth;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+html.dark, html.dark body {
+  background-color: #090D16;
+}
+
+/* Animation personnalisée pour le carrousel infini (TechMarquee) */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-33.33%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #243bb5; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e3a8a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #6366f1; 
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4f46e5;
+}
