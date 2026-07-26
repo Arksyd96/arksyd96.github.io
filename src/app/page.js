@@ -2,18 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 
-import CanvasBackground from '../components/layout/CanvasBackground';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-import ScrollSpy from '../components/ui/ScrollSpy';
-import TechMarquee from '../components/ui/TechMarquee';
+import CanvasBackground from '@/components/layout/CanvasBackground';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import ScrollSpy from '@/components/ui/ScrollSpy';
+import TechMarquee from '@/components/ui/TechMarquee';
 
-import Hero from '../components/sections/Hero';
-import Research from '../components/sections/Research';
-import Experience from '../components/sections/Experience';
-import Curriculum from '../components/sections/Curriculum';
-import Publications from '../components/sections/Publications';
-import Contact from '../components/sections/Contact';
+import Hero from '@/components/sections/Hero';
+import Research from '@/components/sections/Research';
+import Experience from '@/components/sections/Experience';
+import Curriculum from '@/components/sections/Curriculum';
+import Publications from '@/components/sections/Publications';
+import Contact from '@/components/sections/Contact';
 
 export default function PortfolioApp() {
   const [isDarkMode, setIsDarkMode] = useState(false);
